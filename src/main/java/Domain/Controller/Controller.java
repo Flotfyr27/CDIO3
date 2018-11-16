@@ -3,17 +3,15 @@ package Domain.Controller;
 
 public class Controller {
 
-    //Constructor
+    //Constructor - starts game loop
     public Controller(){
-    startGame();
+    gameLoop();
     }
 
-    //Starts the game loop
-    public void startGame(){
-        gameLoop();
-    }
-
+    // Game loop
     public void gameLoop(){
 
     }
+
+
 }
