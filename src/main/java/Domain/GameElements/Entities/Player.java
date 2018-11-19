@@ -11,5 +11,8 @@ public class Player {
         this.pPos = pPos;
     }
 
+    public int getPos(){
+        return pPos;
+    }
 
 }
