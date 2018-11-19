@@ -4,12 +4,13 @@
 package UI.GUI;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
+import org.graalvm.compiler.core.common.Fields;
 
 import javax.swing.*;
 
 //import desktop_fields.*;
 
-public class GUI {
+public class GUI<field> {
 
     private int playerTotal;
     private int fieldNum = 24;
@@ -32,17 +33,26 @@ public class GUI {
         testStreet.getRent();
         fields[1] = testStreet;
     }
-
-    public GUI_Field[] initFields(){
+    public void initfields    {
+    }
 
         //for loop, for hvert field der er. Den skal sætte det ind i et array
         //lav et nyt array og return det array
 
+public int GUI_Field[]
 
+    {
+        for (int i = 0; i < GUI_Field.length; i++){
+            GUI_Field[i]= new int initfields[i];
+
+            return field[i];
 
     }
 
 
-}
+    }
+    }
+
+
 
 
