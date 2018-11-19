@@ -5,6 +5,7 @@ public class Controller {
 
     //Constructor - starts game loop
     public Controller(){
+    Board.movePlaver(P,roll);
     gameLoop();
     }
 
