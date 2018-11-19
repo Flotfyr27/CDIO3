@@ -2,10 +2,14 @@ package Domain.Controller;
 
 
 public class Controller {
+    int NumberOfPlayers;
+    Field[] Fields;
 
     //Constructor - starts game loop
-    public Controller(){
-    gameLoop();
+    public Controller(int NumberOfPlayers){
+        this NumberOfPlayers = NumberOfPlayers;
+        Board.movePlaver(P,roll);
+        gameLoop();
     }
 
     // Game loop
