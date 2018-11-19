@@ -33,17 +33,17 @@ public class GUI<field> {
         testStreet.getRent();
         fields[1] = testStreet;
     }
-    public void initfields    {
+    public void initfields    { //vrøl. det her giver ingen mening i sproget.
     }
 
         //for loop, for hvert field der er. Den skal sætte det ind i et array
         //lav et nyt array og return det array
 
-public int GUI_Field[]
+public int GUI_Field[] //dette er også skrevet forkert en metode skrives: public int GUI_Field[] <metodenavn>(){}
 
     {
         for (int i = 0; i < GUI_Field.length; i++){
-            GUI_Field[i]= new int initfields[i];
+            GUI_Field[i]= new int initfields[i];//her bruger du vrøvl fra tidligere
 
             return field[i];
 
