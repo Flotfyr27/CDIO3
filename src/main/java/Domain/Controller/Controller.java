@@ -9,6 +9,7 @@ public class Controller {
     private Die die;
     private int pIndex;
     private Board board;
+
     //Constructor - starts game loop
     public Controller(Board board){
         die = new Die();
@@ -23,7 +24,7 @@ public class Controller {
     //Loop that runs the game in correct order
         do{
 
-            Board.movePlayer(board.getPlayers()[pIndex],die.Roll());
+            board.movePlayer(board.getPlayers()[pIndex],die.Roll());
 
             nextPlayer();
         }while(/*a player has not won*/);

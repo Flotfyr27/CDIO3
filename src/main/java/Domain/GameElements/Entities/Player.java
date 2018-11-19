@@ -1,7 +1,8 @@
 package Domain.GameElements.Entities;
 
 public class Player {
-    int pPos;
+    private int pPos;
+    private int totalValue;
 
     public Player(){
         pPos = 0;
@@ -14,5 +15,8 @@ public class Player {
     public int getPos(){
         return pPos;
     }
+
+    public int
+
 
 }
