@@ -7,7 +7,7 @@ public class Die {
     private int dieFaces = 10; //bliver et 6-tal i vores
     private int faceValue;
 
-    Die(){
+    public Die(){
         random = new SecureRandom();
     }
 
