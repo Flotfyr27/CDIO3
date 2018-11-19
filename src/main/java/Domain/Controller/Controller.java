@@ -1,14 +1,19 @@
 package Domain.Controller;
 
 
-public class Controller {
-    int NumberOfPlayers;
-    Field[] Fields;
+import Domain.GameElements.Board;
+import Domain.GameElements.Entities.Die;
 
+public class Controller {
+
+    private Die die;
+    private int pIndex;
+    private Board board;
     //Constructor - starts game loop
-    public Controller(int NumberOfPlayers){
-        this NumberOfPlayers = NumberOfPlayers;
-        Board.movePlaver(P,roll);
+    public Controller(Board board){
+        die = new Die();
+        this.board = board;
+        pIndex = 0;
         gameLoop();
     }
 
@@ -18,9 +23,15 @@ public class Controller {
     //Loop that runs the game in correct order
         do{
 
+            Board.movePlayer(board.getPlayers()[pIndex],die.Roll());
+
+            nextPlayer();
         }while(/*a player has not won*/);
 
     }
 
+    private void nextPlayer(){
+        pIndex = ++pIndex%board.getPlayers().length;
+    }
 
 }
