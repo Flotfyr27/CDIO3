@@ -23,4 +23,8 @@ public class Board {
     public Player[] getPlayers() {
         return players;
     }
+
+    public Field[] getFields(){
+        return fields;
+    }
 }
