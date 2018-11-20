@@ -6,49 +6,44 @@ package UI.GUI;
 import Domain.GameElements.Fields.Field;
 import gui_fields.GUI_Empty;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 
 import javax.swing.*;
 
 public class GUI {
 
-    private int playerTotal;
     GUI_Field[] gui_fields;
 
-    public GUI(int numberOfPlayers, Field[] fields) {
-        JFrame jFrame = new JFrame("message");
-        jFrame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        jFrame.setVisible(true);
+    //for loop, for hvert field der er. Der skal sætte det ind i et array
+    //lav et nyt array og return det array
 
-        playerTotal = numberOfPlayers;
+    public void initGuiFields(Field[] fields) {
+
+        gui_fields = new GUI_Field[fields.length];
+
+        for (int i = 0; i < fields.length; i++){
+            gui_fields[i] = new GUI_Empty();
+        }
+    }
+
+    public GUI(int numberOfPlayers, Field[] fields) {
+        JFrame jFrame = new JFrame("Junior Monopoly");
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jFrame.setVisible(true);
 
 
         // number of fields
         initGuiFields(fields);
 
+       // GUI_Player  lav loop omkring denne
+
+                //Lav et for loop for at beskrive antallet at spillere. (nødvendigt for GUI'en)
 
         GUI_Street MatadorStreet = new GUI_Street();
         GUI_Street testStreet = new GUI_Street();
         testStreet.getTitle();
         testStreet.getRent();
-    }
-
-        //for loop, for hvert field der er. Der skal sætte det ind i et array
-        //lav et nyt array og return det array
-        //dette er også skrevet forkert en metode skrives: public int GUI_Field[] <metodenavn>(){}
-public GUI_Field[] initGuiFields(Field[] fields)  {
-
-       gui_fields = new GUI_Field[fields.length];
-
-       for (int i = 0; i < fields.length; i++){
-           GUI_Empty
-        }
-
-        return
-
-
-
-
     }
     }
 
