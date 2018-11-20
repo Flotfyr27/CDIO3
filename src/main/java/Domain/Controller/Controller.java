@@ -27,7 +27,7 @@ public class Controller {
             board.movePlayer(board.getPlayers()[pIndex],die.Roll());
 
             nextPlayer();
-        }while(/*a player has not won*/);
+        }while(board.players.playerWon);
 
     }
 

@@ -1,8 +1,11 @@
 package Domain.GameElements.Entities;
 
+import Domain.Controller.Controller;
+
 public class Player {
     private int pPos;
     private int totalValue;
+
 
     public Player(){
         pPos = 0;
@@ -16,7 +19,10 @@ public class Player {
         return pPos;
     }
 
-    public int
+    public boolean playerWon(){
+        for(int value=0; value<200; value+//die.roll for en spiller)
+            return false;
+    }
 
 
 }
