@@ -17,7 +17,6 @@ public class GUI {
 
     //for loop, for hvert field der er. Der skal sætte det ind i et array
     //lav et nyt array og return det array
-
     public void initGuiFields(Field[] fields) {
 
         gui_fields = new GUI_Field[fields.length];
@@ -30,6 +29,7 @@ public class GUI {
     public GUI(int numberOfPlayers, Field[] fields) {
         JFrame jFrame = new JFrame("Junior Monopoly");
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         jFrame.setVisible(true);
 
 

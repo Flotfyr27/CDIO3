@@ -18,11 +18,11 @@ public class Player {
     public int getPos(){
         return pPos;
     }
-
+/*
     public boolean playerWon(){
         for(int value=0; value<200; value+//die.roll for en spiller)
         return false;
     }
-
+*/
 
 }
