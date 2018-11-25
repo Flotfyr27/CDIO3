@@ -22,6 +22,22 @@ public class PropertyField extends Field {
         this.owner = owner;
     }
 
+    /**
+     * Method returns the rent of the property.
+     * @return The rent is returned.
+     */
+    public int getRent(){
+        return rent;
+    }
+
+    /**
+     * Method returns the price of the property.
+     * @return Integer representing the property price.
+     */
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public void landOnAction() {
         super.landOnAction();
