@@ -11,6 +11,7 @@ public class StartUpController {
 
 
         Board board = new Board();
+        //TODO : Fix GUI so that parameters are added
         GuiHandler gui = new GuiHandler();//Add parameters
         Controller controller = new Controller(board, gui);
     }

@@ -15,7 +15,7 @@ public class ChanceField extends Field {
         super(name, description);
         this.chanceCards = chanceCards;
     }
-
+//TODO : Change landOnAction to fit chancecards appropriately
     /**
      * Performs an action when a player lands on the field.
      */

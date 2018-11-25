@@ -45,7 +45,7 @@ public class PropertyField extends Field {
     public Player getOwner() {
         return owner;
     }
-
+//TODO : Change for purpose of buying the property or paying rent
     @Override
     public void landOnAction() {
         super.landOnAction();
