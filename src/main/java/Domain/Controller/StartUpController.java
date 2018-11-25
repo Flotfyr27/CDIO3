@@ -11,7 +11,7 @@ public class StartUpController {
 
 
         Board board = new Board();
-        GuiHandler gui = new GuiHandler(pNum ,board.getFields());
+        GuiHandler gui = new GuiHandler();//Add parameters
         Controller controller = new Controller(board, gui);
     }
 
