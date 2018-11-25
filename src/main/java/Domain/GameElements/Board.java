@@ -15,7 +15,7 @@ public class Board {
     public Board() {
         players = new Player[2];
         fields = new Field[24];
-
+        setFields();
     }
 
     public void movePlayer(Player p, int dist){
