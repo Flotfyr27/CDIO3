@@ -38,6 +38,14 @@ public class PropertyField extends Field {
         return price;
     }
 
+    /**
+     * Method returns the current owner.
+     * @return Object of type player.
+     */
+    public Player getOwner() {
+        return owner;
+    }
+
     @Override
     public void landOnAction() {
         super.landOnAction();
