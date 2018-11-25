@@ -14,4 +14,5 @@ public abstract class Field {
      public String getDescription(){
          return description;
      }
+     public void landOnAction(){}
 }
