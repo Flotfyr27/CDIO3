@@ -6,9 +6,9 @@ public abstract class Field {
      private String name, description;
      private Color bgColour;
 
-     public Field(String name, String description, Color bgColour){
+     public Field(String name, String subtext, Color bgColour){
          this.name = name;
-         this.description = description;
+         this.description = subtext;
          this.bgColour = bgColour;
      }
 

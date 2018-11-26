@@ -6,6 +6,8 @@ import Domain.GameElements.Fields.EmptyField;
 import Domain.GameElements.Fields.Field;
 import Domain.GameElements.Fields.PropertyField;
 
+import java.awt.*;
+
 public class Board {
     private Player[] players;
     private Field[] fields;
