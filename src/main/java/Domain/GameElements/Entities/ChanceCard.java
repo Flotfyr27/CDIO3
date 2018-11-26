@@ -22,7 +22,7 @@ public class ChanceCard {
         this.colour = colour;
     }
 
-    public void chanceAction(Player player, Field[] fields){
+    public void chanceAction(Player player, Field[] fields, Player[] players){
         switch (actionType) {
             case 0:
                 changeBalance(player);
@@ -34,10 +34,10 @@ public class ChanceCard {
                 moveToColour(player, fields);
                 break;
             case 3:
-                moveToStart();
+                moveToStart(player);
                 break;
             case 4:
-                birthday();
+                birthday(player, players);
                 break;
 
         }
@@ -76,7 +76,7 @@ public class ChanceCard {
 
     private int nextFieldOfColour(Player p, Field[] fields){
         for (int i = p.getPos(); i < p.getPos(); i = ++i % fields.length) {
-            if (fields[i].getColour() == colour) {
+            if (fields[i].getBgColour() == colour) {
                 return i;
             }
         }
