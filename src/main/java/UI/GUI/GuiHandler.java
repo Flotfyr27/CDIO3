@@ -28,7 +28,7 @@ public class GuiHandler {
                 gui_field[i] = (new GUI_Chance(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
             }
         }
-        gui = new GUI(gui_field, Color.GREEN);
+        gui = new GUI(gui_field, Color.lightGray);
     }
 }
 
