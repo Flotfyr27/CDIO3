@@ -23,7 +23,7 @@ public class GuiHandler {
                 PropertyField propertyField = (PropertyField) fields[i];
                 gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", Integer.toString(propertyField.getPrice()), fields[i].getBgColour(), null));
             }else if(fields[i].getClass().equals(EmptyField.class)){
-                gui_field[i] = (new GUI_Empty(fields[i].getBgColour(), null, fields[i].getName(), fields[i].getSubtext(), ""));
+                gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", "", fields[i].getBgColour(), null));//This one be causing trouble
             }else if(fields[i].getClass().equals(ChanceField.class)){
                 gui_field[i] = (new GUI_Chance(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
             }
