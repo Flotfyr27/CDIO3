@@ -12,12 +12,12 @@ public class PropertyField extends Field {
     /**
      * Constructor for PropertyField
      * @param name Name of the field
-     * @param description Description of the field
+     * @param subtext Description of the field
      * @param price Price to purchase the property
      * @param bgColour Colour of the field.
      */
-    public PropertyField(String name, String description, Color bgColour, int price){
-        super(name, description, bgColour);
+    public PropertyField(String name, String subtext, Color bgColour, int price){
+        super(name, subtext, bgColour);
         this.price = price;
     }
 
