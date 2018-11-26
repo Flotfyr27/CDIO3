@@ -8,6 +8,7 @@ public class Player {
 
     public Player(){
         pPos = 0;
+        account = new Account();
     }
 
     public void setPos(int pPos) {
