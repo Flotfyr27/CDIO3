@@ -2,6 +2,7 @@ package Domain.GameElements.Fields;
 
 import Domain.GameElements.Entities.ChanceCard;
 
+import java.awt.*;
 import java.security.SecureRandom;
 
 public class ChanceField extends Field {
@@ -11,11 +12,12 @@ public class ChanceField extends Field {
     /**
      * Constructor for ChanceField, gathers name, description and chancecards to create the field.
      * @param name Name of the field.
-     * @param description The fields description.
+     * @param subtext The fields description.
      * @param chanceCards An array of chance cards supplied by the ChanceCard class.
+     * @param bgColour Colour of the field
      */
-    public ChanceField(String name, String description, ChanceCard[] chanceCards){
-        super(name, description);
+    public ChanceField(String name, String subtext, Color bgColour, ChanceCard[] chanceCards){
+        super(name, subtext, bgColour);
         this.chanceCards = chanceCards;
     }
 

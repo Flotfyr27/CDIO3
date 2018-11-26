@@ -2,30 +2,23 @@ package Domain.GameElements.Fields;
 
 import Domain.GameElements.Entities.Player;
 
+import java.awt.*;
+
 public class PropertyField extends Field {
 
-    private int rent, price;
+    private int price;
     private Player owner;
 
     /**
      * Constructor for PropertyField
      * @param name Name of the field
-     * @param description Description of the field
-     * @param rent Rent to pay for when another player lands on the field
+     * @param subtext Description of the field
      * @param price Price to purchase the property
+     * @param bgColour Colour of the field.
      */
-    public PropertyField(String name, String description, int rent, int price){
-        super(name, description);
-        this.rent = rent;
+    public PropertyField(String name, String subtext, Color bgColour, int price){
+        super(name, subtext, bgColour);
         this.price = price;
-    }
-
-    /**
-     * Method returns the rent of the property.
-     * @return The rent is returned.
-     */
-    public int getRent(){
-        return rent;
     }
 
     /**
