@@ -15,7 +15,7 @@ import java.awt.*;
 public class GuiHandler {
     GUI gui;
     GUI_Field[] gui_field = new GUI_Field[24];
-    public GuiHandler(Field[] fields){
+    public GuiHandler(Field[] fields){//Field[] fields
         for(int i = 0; i < gui_field.length; i++){
             if(fields[i].getClass().equals(EmptyField.class) && i == 0){
                 gui_field[i] = (new GUI_Start(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
@@ -23,11 +23,12 @@ public class GuiHandler {
                 PropertyField propertyField = (PropertyField) fields[i];
                 gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", Integer.toString(propertyField.getPrice()), fields[i].getBgColour(), null));
             }else if(fields[i].getClass().equals(EmptyField.class)){
-                gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", "", fields[i].getBgColour(), null));//This one be causing trouble
+                gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", "0", fields[i].getBgColour(), null));//This one be causing trouble
             }else if(fields[i].getClass().equals(ChanceField.class)){
                 gui_field[i] = (new GUI_Chance(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
             }
         }
+
         gui = new GUI(gui_field, Color.lightGray);
     }
 }
