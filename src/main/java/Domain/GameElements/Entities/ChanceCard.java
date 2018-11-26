@@ -1,5 +1,6 @@
 package Domain.GameElements.Entities;
 
+import Domain.GameElements.Fields.Field;
 import TechnicalServices.ChanceCardAction;
 
 public class ChanceCard {
@@ -13,13 +14,16 @@ public class ChanceCard {
         this.amount = amount;
     }
 
-    public void chanceAction(Player player){
+    public void chanceAction(Player player, Field[] fields){
         switch (actionType) {
             case 0:
                 changeBalance(player);
                 break;
             case 1:
-                movePlayer(player);
+                moveByAmount(player, fields);
+                break;
+            case 2:
+                moveToColour(player, fields);
                 break;
         }
 
@@ -27,11 +31,16 @@ public class ChanceCard {
 
     private void changeBalance(Player p){
         p.getAccount().changeScore(amount);
-
     }
 
-    private void movePlayer(Player p){
+    private void moveByAmount(Player p, Field[] fields){
+        int currentPos = p.getPos();
+        currentPos = (currentPos + amount)%fields.length;
+        p.setPos(currentPos);
+    }
 
+    private void moveToColour(Player p, Field[] fields){
+        //p.setPos(amount);
     }
 
 }
