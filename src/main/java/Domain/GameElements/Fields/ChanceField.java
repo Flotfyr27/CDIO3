@@ -33,6 +33,6 @@ public class ChanceField extends Field {
      */
     @Override
     public void landOnAction() {
-        chanceCards[random.nextInt(chanceCards.length)].chanceAction();
+        //chanceCards[random.nextInt(chanceCards.length)].chanceAction();
     }
 }
