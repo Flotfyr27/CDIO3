@@ -13,13 +13,11 @@ public class PropertyField extends Field {
      * @param description Description of the field
      * @param rent Rent to pay for when another player lands on the field
      * @param price Price to purchase the property
-     * @param owner Current owner of the property
      */
-    public PropertyField(String name, String description, int rent, int price, Player owner){
+    public PropertyField(String name, String description, int rent, int price){
         super(name, description);
         this.rent = rent;
         this.price = price;
-        this.owner = owner;
     }
 
     /**
@@ -36,6 +34,14 @@ public class PropertyField extends Field {
      */
     public int getPrice() {
         return price;
+    }
+
+    /**
+     * Sets the owner of the field
+     * @param owner Is the player object which owns the field
+     */
+    public void setOwner(Player owner) {
+        this.owner = owner;
     }
 
     /**
