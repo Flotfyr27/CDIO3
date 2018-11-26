@@ -4,12 +4,12 @@ import java.awt.*;
 
 public abstract class Field {
      private String name, description;
-     private Color bgColor
+     private Color bgColour;
 
-     public Field(String name, String description, Color bgColor){
+     public Field(String name, String description, Color bgColour){
          this.name = name;
          this.description = description;
-         this.bgColor = bgColor;
+         this.bgColour = bgColour;
      }
 
      public String getName(){
@@ -18,6 +18,6 @@ public abstract class Field {
      public String getDescription(){
          return description;
      }
-     public Color getBgColor(){ return bgColor;}
+     public Color getBgColour(){ return bgColour;}
      public void landOnAction(){}
 }

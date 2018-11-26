@@ -14,10 +14,10 @@ public class ChanceField extends Field {
      * @param name Name of the field.
      * @param description The fields description.
      * @param chanceCards An array of chance cards supplied by the ChanceCard class.
-     * @param bgColor Colour of the field
+     * @param bgColour Colour of the field
      */
-    public ChanceField(String name, String description, Color bgColor, ChanceCard[] chanceCards){
-        super(name, description, bgColor);
+    public ChanceField(String name, String description, Color bgColour, ChanceCard[] chanceCards){
+        super(name, description, bgColour);
         this.chanceCards = chanceCards;
     }
 
