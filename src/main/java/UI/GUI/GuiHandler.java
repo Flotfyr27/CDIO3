@@ -16,7 +16,6 @@ import java.awt.*;
 public class GuiHandler {
     GUI gui;
     GUI_Field[] gui_field = new GUI_Field[24];
-    //TODO : Change constructor so that fields are read from a parameter and not hardcoded.
     public GuiHandler(Field[] fields){
         for(int i = 0; i < gui_field.length; i++){
             if(fields[i].getClass().equals(EmptyField.class) && i == 0){
