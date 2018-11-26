@@ -2,5 +2,6 @@ package TechnicalServices;
 
 public enum ChanceCardAction {
     ChangeBalance,
-    MovePlayer,
+    MoveByAmount,
+    MoveToField
 }
