@@ -13,6 +13,7 @@ public class Board {
     private Field[] fields;
     private final Color BROWN = new Color(102,51,0);
     private final Color HOT_PINK = new Color(255, 105, 180);
+    private final Color FOREST_GREEN = new Color(20, 126, 18)
 
 
     private ChanceCard[] chanceCardArray = new ChanceCard[10];
@@ -61,8 +62,8 @@ public class Board {
         fields[16] = (new PropertyField("LEGETØJSBUTIKKEN", "$3", Color.YELLOW, 3));
         fields[17] = (new PropertyField("DYREHANDLEN", "$3", Color.YELLOW, 3));
         fields[18] = (new EmptyField("GÅ I FÆNGSEL", "", Color.lightGray));
-        fields[19] = (new PropertyField("BOWLINGHALLEN", "$4", Color.GREEN, 4));
-        fields[20] = (new PropertyField("ZOO", "$4", Color.GREEN, 4));
+        fields[19] = (new PropertyField("BOWLINGHALLEN", "$4", FOREST_GREEN, 4));
+        fields[20] = (new PropertyField("ZOO", "$4", FOREST_GREEN, 4));
         fields[21] = (new ChanceField("CHANCE", "", Color.lightGray, chanceCardArray));
         fields[22] = (new PropertyField("VANDLANDET", "$5", Color.BLUE, 5));
         fields[23] = (new PropertyField("STRANDPROMENADEN", "$5", Color.BLUE, 5));
