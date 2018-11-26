@@ -9,7 +9,7 @@ import Domain.GameElements.Fields.PropertyField;
 public class Board {
     private Player[] players;
     private Field[] fields;
-    private ChanceField chanceField;
+    private ChanceCard[] chanceCardArray = new ChanceCard[10];
 
 
     public Board() {
@@ -45,7 +45,7 @@ public class Board {
         fields[6] = (new EmptyField("På besøg i fængsel", "Du er bare på besøg"));
         fields[7] = (new PropertyField("Vej5", "Endnu en vej", 250, 2500));
         fields[8] = (new PropertyField("Vej6", "Endnu en vej", 250, 2500));
-        fields[9] = (new ChanceField("Chance!", "This oppertunity only comes once in a life time yo!", chanceField.getChanceCards()));
+        fields[9] = (new ChanceField("Chance!", "This opportunity only comes once in a life time yo!", chanceField.getChanceCards()));
         fields[10] = (new PropertyField("Vej7", "En vej", 150, 1500));
         fields[11] = (new PropertyField("Vej8", "Vejen", 150, 1500));
         fields[12] = (new EmptyField("Free parking", "Det gratis"));
