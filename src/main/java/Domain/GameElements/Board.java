@@ -13,7 +13,7 @@ public class Board {
     private Field[] fields;
     private final Color BROWN = new Color(102,51,0);
     private final Color HOT_PINK = new Color(255, 105, 180);
-    private final Color FOREST_GREEN = new Color(20, 126, 18)
+    private final Color FOREST_GREEN = new Color(20, 126, 18);
 
 
     private ChanceCard[] chanceCardArray = new ChanceCard[10];
