@@ -2,8 +2,11 @@ package Domain.GameElements.Fields;
 
 import Domain.GameElements.Entities.ChanceCard;
 
+import java.security.SecureRandom;
+
 public class ChanceField extends Field {
     private ChanceCard[] chanceCards;
+    private SecureRandom random = new SecureRandom();
 
     /**
      * Constructor for ChanceField, gathers name, description and chancecards to create the field.
@@ -23,12 +26,11 @@ public class ChanceField extends Field {
     public ChanceCard[] getChanceCards() {
         return chanceCards;
     }
-    //TODO : Change landOnAction to fit chancecards appropriately
     /**
      * Performs an action when a player lands on the field.
      */
     @Override
     public void landOnAction() {
-        super.landOnAction();
+        chanceCards[random.nextInt(chanceCards.length)].chanceAction();
     }
 }
