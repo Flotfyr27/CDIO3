@@ -19,8 +19,9 @@ public class Board {
     private ChanceCard[] chanceCardArray = new ChanceCard[10];
 
 
-    public Board() {
-        players = new Player[2];
+    public Board(int pNum) {
+        players = new Player[pNum];
+        initPlayers();
         fields = new Field[24];
         setFields();
     }
@@ -67,5 +68,10 @@ public class Board {
         fields[21] = (new ChanceField("CHANCE", "", Color.lightGray, chanceCardArray));
         fields[22] = (new PropertyField("VANDLANDET", "$5", Color.BLUE, 5));
         fields[23] = (new PropertyField("STRANDPROMENADEN", "$5", Color.BLUE, 5));
+    }
+
+    private void initPlayers(){
+        for (Player p : players)
+            p = new Player();
     }
 }
