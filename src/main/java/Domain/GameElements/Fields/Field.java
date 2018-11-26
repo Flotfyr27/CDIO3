@@ -1,18 +1,23 @@
 package Domain.GameElements.Fields;
 
-public abstract class Field {
-     private String name, description;
+import java.awt.*;
 
-     public Field(String name, String description){
+public abstract class Field {
+     private String name, subtext;
+     private Color bgColour;
+
+     public Field(String name, String subtext, Color bgColour){
          this.name = name;
-         this.description = description;
+         this.subtext = subtext;
+         this.bgColour = bgColour;
      }
 
      public String getName(){
          return name;
      }
-     public String getDescription(){
-         return description;
+     public String getSubtext(){
+         return subtext;
      }
+     public Color getBgColour(){ return bgColour;}
      public void landOnAction(){}
 }
