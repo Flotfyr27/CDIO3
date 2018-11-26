@@ -16,7 +16,7 @@ public class GuiHandler {
     //TODO : Change constructor so that fields are read from a parameter and not hardcoded.
     public GuiHandler(Field[] fields){
         for(int i = 0; i < gui_field.length; i++){
-            gui_field[i] = (new GUI_Street(fields[i].getName(), "", fields[i].getDescription(), "200", Color.lightGray, null));
+            gui_field[i] = (new GUI_Street(fields[i].getName(), "", fields[i].getDescription(), fields[i].getRent(), Color.lightGray, null));
         }
         gui = new GUI(gui_field, Color.GREEN);
     }

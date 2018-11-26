@@ -4,8 +4,7 @@ import Domain.Controller.Controller;
 
 public class Player {
     private int pPos;
-    private int totalValue;
-
+    private Account account;
 
     public Player(){
         pPos = 0;
@@ -18,11 +17,8 @@ public class Player {
     public int getPos(){
         return pPos;
     }
-/*
-    public boolean playerWon(){
-        for(int value=0; value<200; value+//die.roll for en spiller)
-        return false;
-    }
-*/
 
+    public Account getAccount() {
+        return account;
+    }
 }
