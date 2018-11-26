@@ -1,8 +1,7 @@
 package Domain.Controller;
 
-import Domain.GameElements.*;
-import UI.GUI.*;
-
+import Domain.GameElements.Board;
+import UI.GUI.GUI;
 
 
 public class StartUpController {
@@ -11,9 +10,8 @@ public class StartUpController {
 
 
         Board board = new Board();
-        //TODO : Fix GUI so that parameters are added
-        GuiHandler gui = new GuiHandler();//Add parameters
-        Controller controller = new Controller(board, gui);
+        GUI gui = new GUI(2, board.getFields());
+        Controller controller = new Controller(board);
     }
 
 }
