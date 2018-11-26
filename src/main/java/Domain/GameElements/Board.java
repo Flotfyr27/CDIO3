@@ -11,6 +11,10 @@ import java.awt.*;
 public class Board {
     private Player[] players;
     private Field[] fields;
+    private final Color BROWN = new Color(102,51,0);
+    private final Color HOT_PINK = new Color(255, 105, 180);
+
+
     private ChanceCard[] chanceCardArray = new ChanceCard[10];
 
 
