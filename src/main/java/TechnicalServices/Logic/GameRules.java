@@ -6,19 +6,9 @@ import Domain.GameElements.Entities.Player;
  * A class checking whether some rule comes into effect. mainly win and loose conditions
  */
 public class GameRules {
-    private Player[] players;
-
-    /**
-     * Constructor for GameRules
-     * @param players
-     */
-    public GameRules(Player[] players){
-        this.players = players;
-    }
-
     /**
      * This method checks if the player has lost or not
-     * @param player
+     * @param player The player object being examined
      * @return True if the player has lost
      */
     public boolean hasLost(Player player){
