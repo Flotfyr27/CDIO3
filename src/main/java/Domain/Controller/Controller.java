@@ -2,6 +2,7 @@ package Domain.Controller;
 
 
 import Domain.GameElements.Board;
+import Domain.GameElements.Entities.ChanceCard;
 import Domain.GameElements.Entities.Die;
 import Domain.GameElements.Entities.Player;
 import TechnicalServices.Logic.GameRules;
@@ -10,22 +11,16 @@ import UI.GUI.GuiHandler;
 public class Controller {
 
     private Die die;
-    private int pIndex;
     private Board board;
     private GuiHandler guiHandler;
-    private GameRules rules;
-    private Player[] players;
+    private ChanceCard[] cards;
 
-    //Constructor - starts game loop
-    public Controller(Board board, GuiHandler guiHandler){
-        die = new Die();
-        this.board = board;
-        players = board.getPlayers();
-        pIndex = 0;
-        this.guiHandler = guiHandler;
-        rules = new GameRules(board.getPlayers());
-        gameLoop();
-    }
+private void setupGame(){
+    board = new Board();
+    guiHandler = new GuiHandler(board.getFields());
+    board.initPlayers(guiHandler.getNumberOfPlayers(2, 4));
+    guiHandler.initGui(board.getPlayers());
+}
 
     /**
      *  Game loop that goes through steps of the game round
