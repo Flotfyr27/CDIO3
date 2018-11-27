@@ -14,6 +14,7 @@ public class Controller {
     private Board board;
     private GuiHandler guiHandler;
     private ChanceCard[] cards;
+    private int currentPlayer = 0;
 
     private boolean noWinner = true;
 
@@ -25,7 +26,7 @@ public class Controller {
     }
     private void gameLoop(){
         while(noWinner){
-            //takeTurn();
+            takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
             //switchPlayer();
             //checkForWin();
@@ -35,5 +36,13 @@ public class Controller {
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.setupGame();
+    }
+
+    private void takeTurn(){
+        guiHandler.waitForRoll();
+        int rollValue = die.Roll();
+        board.movePlayer(board.getPlayers()[currentPlayer],rollValue);
+        guiHandler.giveMsg("You rolled a " + rollValue);
+        //landOnAction?
     }
 }
