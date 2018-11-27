@@ -86,6 +86,19 @@ public class GuiHandler {
 
 
     }
+
+    public void updateGui(Player[] p){
+        //Remove all cars
+        for(int i = 0; i < 24; i++){
+            gui_field[i].removeAllCars();
+        }
+        //Update player balance and location
+        for(int i = 0; i < p.length; i++){
+            guiPlayers[i].setBalance(p[i].getAccount().getScore());
+            gui_field[p[i].getPos()].setCar(guiPlayers[i], true);
+        }
+
+    }
 }
 
 
