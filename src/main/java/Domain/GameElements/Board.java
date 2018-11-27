@@ -74,10 +74,4 @@ public class Board {
         fields[22] = (new PropertyField("VANDLANDET", "$5", Color.BLUE, 5));
         fields[23] = (new PropertyField("STRANDPROMENADEN", "$5", Color.BLUE, 5));
     }
-
-    private void initPlayers(){
-        for (int i = 0; i < players.length; i++) {
-            players[i] = new Player();
-        }
-    }
 }
