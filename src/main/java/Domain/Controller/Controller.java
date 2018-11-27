@@ -25,7 +25,7 @@ public class Controller {
         guiHandler.initGui(board.getPlayers());
     }
     private void gameLoop(){
-        while(winnerFound){
+        while(!winnerFound){
             takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
             switchPlayer();
