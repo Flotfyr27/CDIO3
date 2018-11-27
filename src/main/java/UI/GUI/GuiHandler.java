@@ -108,8 +108,8 @@ public class GuiHandler {
 
     }
 
-    public void waitForRoll(){
-        gui.showMessage("Roll die");
+    public void giveMsg(String msg){
+        gui.showMessage(msg);
     }
 }
 
