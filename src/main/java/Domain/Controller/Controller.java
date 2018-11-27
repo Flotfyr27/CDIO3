@@ -22,6 +22,11 @@ private void setupGame(){
     guiHandler.initGui(board.getPlayers());
 }
 
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.setupGame();
+    }
+
     /**
      *  Game loop that goes through steps of the game round
      */
