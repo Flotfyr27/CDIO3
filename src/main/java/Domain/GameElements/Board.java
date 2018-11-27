@@ -37,6 +37,13 @@ public class Board {
         return fields;
     }
 
+    public void initPlayers(int numberOfPlayers){
+        players = new Player[numberOfPlayers];
+        for(int i = 0; i < numberOfPlayers; i++){
+            players[i] = new Player();
+        }
+    }
+
     /**
      * Method generates a bunch of fields in the shape of the provided monopoly game board
      */
