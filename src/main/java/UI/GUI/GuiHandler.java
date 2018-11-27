@@ -31,6 +31,13 @@ public class GuiHandler {
 
         gui = new GUI(gui_field, Color.lightGray);
     }
+
+    /**
+     * Methods adds a button to the screen
+     */
+    public void addButton(){
+        String buttonInput = gui.getUserButtonPressed("", "Press me");
+    }
 }
 
 
