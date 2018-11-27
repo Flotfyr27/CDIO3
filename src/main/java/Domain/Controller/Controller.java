@@ -15,25 +15,25 @@ public class Controller {
     private GuiHandler guiHandler;
     private ChanceCard[] cards;
 
-private void setupGame(){
-    board = new Board();
-    guiHandler = new GuiHandler(board.getFields());
-    board.initPlayers(guiHandler.getNumberOfPlayers(2, 4));
-    guiHandler.initGui(board.getPlayers());
-}
+    private boolean noWinner = true;
+
+    private void setupGame(){
+        board = new Board();
+        guiHandler = new GuiHandler(board.getFields());
+        board.initPlayers(guiHandler.getNumberOfPlayers(2, 4));
+        guiHandler.initGui(board.getPlayers());
+    }
+    private void gameLoop(){
+        while(noWinner){
+            //takeTurn();
+            guiHandler.updateGui(board.getPlayers(), board.getFields());
+            //switchPlayer();
+            //checkForWin();
+        }
+    }
 
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.setupGame();
     }
-
-//TODO https://www.dotnetperls.com/shuffle-java
-
-
-
-
-    /*private void nextPlayer(){
-        pIndex = ++pIndex%board.getPlayers().length;
-    }*/
-
 }
