@@ -19,10 +19,7 @@ public class Board {
     private ChanceCard[] chanceCardArray = new ChanceCard[10];
 
 
-    public Board(int pNum) {
-        players = new Player[pNum];
-        initPlayers();
-        fields = new Field[24];
+    public Board() {
         setFields();
     }
 
@@ -44,6 +41,7 @@ public class Board {
      * Method generates a bunch of fields in the shape of the provided monopoly game board
      */
     private void setFields(){
+        fields = new Field[24];
         fields[0] = (new EmptyField("START", "Modtage $2, når du passerer", Color.lightGray));
         fields[1] = (new PropertyField("BURGERBAREN", "$1", BROWN, 1));
         fields[2] = (new PropertyField("PIZZARIAET", "$1", BROWN, 1));
