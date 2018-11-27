@@ -33,10 +33,10 @@ public class GuiHandler {
     }
 
     /**
-     * Methods adds a button to the screen
+     * Methods returns an integer given by a player
      */
-    public void addButton(){
-        String buttonInput = gui.getUserButtonPressed("", "Press me");
+    public int getUserInteger(String msg, int min, int max){
+        return gui.getUserInteger(msg, min, max);
     }
 }
 
