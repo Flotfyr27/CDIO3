@@ -97,6 +97,12 @@ public class GuiHandler {
             guiPlayers[i].setBalance(p[i].getAccount().getScore());
             gui_field[p[i].getPos()].setCar(guiPlayers[i], true);
         }
+        //Update ownership of tile
+        for(int i = 0; i < gui_field.length; i++){
+            if(gui_field[i].getClass().equals(PropertyField.class)){
+                gui_field[i].setSubText(gui_field[i].getClass().getOwner());//Find out how to access this value! (Owner value of PropertyField)
+            }
+        }
 
     }
 }
