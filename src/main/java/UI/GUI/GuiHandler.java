@@ -87,7 +87,7 @@ public class GuiHandler {
 
     }
 
-    public void updateGui(Player[] p){
+    public void updateGui(Player[] p, Field[] f){
         //Remove all cars
         for(int i = 0; i < 24; i++){
             gui_field[i].removeAllCars();
@@ -98,9 +98,11 @@ public class GuiHandler {
             gui_field[p[i].getPos()].setCar(guiPlayers[i], true);
         }
         //Update ownership of tile
+        Player ownerPlayer;
         for(int i = 0; i < gui_field.length; i++){
             if(gui_field[i].getClass().equals(PropertyField.class)){
-                gui_field[i].setSubText(gui_field[i].getClass().getOwner());//Find out how to access this value! (Owner value of PropertyField)
+                ownerPlayer = ((PropertyField) f[i]).getOwner();
+                gui_field[i].setSubText(ownerPlayer.getName());//Find out how to access this value! (Owner value of PropertyField)
             }
         }
 
