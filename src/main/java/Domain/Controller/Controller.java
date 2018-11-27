@@ -27,32 +27,13 @@ private void setupGame(){
         controller.setupGame();
     }
 
-    /**
-     *  Game loop that goes through steps of the game round
-     */
-    public void gameLoop(){
 //TODO https://www.dotnetperls.com/shuffle-java
-        /*try {
-            wait(1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
-        //Loop that runs the game in correct order
-        do{
 
 
-            guiHandler.addButton();
 
-            board.movePlayer(players[pIndex], die.Roll());
 
-            nextPlayer();
-        }while (!rules.hasLost(board.getPlayers()[pIndex]));
-
-    }
-
-    private void nextPlayer(){
+    /*private void nextPlayer(){
         pIndex = ++pIndex%board.getPlayers().length;
-    }
+    }*/
 
 }
