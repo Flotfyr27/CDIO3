@@ -3,6 +3,7 @@
  */
 package UI.GUI;
 
+import Domain.GameElements.Entities.Player;
 import Domain.GameElements.Fields.ChanceField;
 import Domain.GameElements.Fields.EmptyField;
 import Domain.GameElements.Fields.Field;
@@ -15,6 +16,7 @@ import java.awt.*;
 public class GuiHandler {
     GUI gui;
     GUI_Field[] gui_field = new GUI_Field[24];
+    GUI_Player[] guiPlayers;
     public GuiHandler(Field[] fields){//Field[] fields
         for(int i = 0; i < gui_field.length; i++){
             if(fields[i].getClass().equals(EmptyField.class) && i == 0){
@@ -39,6 +41,21 @@ public class GuiHandler {
      */
     public int getNumberOfPlayers(int min, int max){
         return gui.getUserInteger("How many players are present?", min, max);
+    }
+
+    public void initGui(Player[] p){
+        //Create players
+        guiPlayers = new GUI_Player[p.length];
+        for(int i = 0; i < p.length; i++){
+            guiPlayers[i] = new GUI_Player("Player" + i, p[i].getAccount().getScore(), new GUI_Car());
+            //Add players to GUI
+            gui.addPlayer(guiPlayers[i]);
+            guiPlayers[i].setBalance(p[i].getAccount().getScore());
+            //Adds the players car to the board at START
+            gui_field[0].setCar(guiPlayers[i], true);
+        }
+
+
     }
 }
 
