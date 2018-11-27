@@ -44,10 +44,11 @@ public class GuiHandler {
     }
 
     public void initGui(Player[] p){
+        ;
         //Create players
         guiPlayers = new GUI_Player[p.length];
         for(int i = 0; i < p.length; i++){
-            guiPlayers[i] = new GUI_Player("Player" + i, p[i].getAccount().getScore(), new GUI_Car());
+            guiPlayers[i] = new GUI_Player("Player" + (i+1), p[i].getAccount().getScore(), new GUI_Car(new Color(255/(i+1), 255/((i+1)*2), 255/((i+1)*3)), Color.WHITE, GUI_Car.Type.CAR, GUI_Car.Pattern.HORIZONTAL_LINE));
             //Add players to GUI
             gui.addPlayer(guiPlayers[i]);
             guiPlayers[i].setBalance(p[i].getAccount().getScore());
