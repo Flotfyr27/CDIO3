@@ -26,14 +26,4 @@ private void setupGame(){
         Controller controller = new Controller();
         controller.setupGame();
     }
-
-//TODO https://www.dotnetperls.com/shuffle-java
-
-
-
-
-    /*private void nextPlayer(){
-        pIndex = ++pIndex%board.getPlayers().length;
-    }*/
-
 }
