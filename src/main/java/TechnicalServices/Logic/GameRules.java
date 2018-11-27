@@ -22,7 +22,7 @@ public class GameRules {
      * @return True if the player has lost
      */
     public boolean hasLost(Player player){
-        if (player.getAccount().getScore() <= 0)
+        if (player.getAccount().getScore() < 0)
             return true;
         return false;
     }
