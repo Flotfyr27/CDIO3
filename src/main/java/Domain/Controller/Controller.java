@@ -38,7 +38,7 @@ public class Controller {
     }
 
     private void takeTurn(){
-        guiHandler.giveMsg("Roll die");
+        guiHandler.giveMsg("Player" + (currentPlayer+1) + " please roll a die");
         int rollValue = die.Roll();
         board.movePlayer(board.getPlayers()[currentPlayer],rollValue);
         guiHandler.giveMsg("You rolled a " + rollValue);
