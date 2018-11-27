@@ -31,7 +31,7 @@ public class ChanceField extends Field {
     /**
      * Performs an action when a player lands on the field.
      */
-    @Override
+
     public void landOnAction() {
         //chanceCards[random.nextInt(chanceCards.length)].chanceAction();
     }

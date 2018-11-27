@@ -71,7 +71,8 @@ public class Board {
     }
 
     private void initPlayers(){
-        for (Player p : players)
-            p = new Player();
+        for (int i = 0; i < players.length; i++) {
+            players[i] = new Player();
+        }
     }
 }
