@@ -8,7 +8,7 @@ import UI.GUI.GuiHandler;
 
 public class Controller {
 
-    private Die die;
+    private Die die = new Die();
     private Board board;
     private GuiHandler guiHandler;
     private ChanceCard[] cards;
@@ -34,6 +34,7 @@ public class Controller {
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.setupGame();
+        controller.gameLoop();
     }
 
     private void takeTurn(){
