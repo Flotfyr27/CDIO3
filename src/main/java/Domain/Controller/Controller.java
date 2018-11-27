@@ -26,7 +26,7 @@ public class Controller {
         while(noWinner){
             takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
-            //switchPlayer();
+            switchPlayer();
             //checkForWin();
         }
     }
@@ -43,5 +43,13 @@ public class Controller {
         board.movePlayer(board.getPlayers()[currentPlayer],rollValue);
         guiHandler.giveMsg("You rolled a " + rollValue);
         //landOnAction?
+    }
+
+    private void switchPlayer(){
+        if(currentPlayer == 3){
+            currentPlayer = 0;
+        }else{
+            currentPlayer++;
+        }
     }
 }
