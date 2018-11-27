@@ -34,9 +34,11 @@ public class GuiHandler {
 
     /**
      * Methods returns an integer given by a player
+     * @param min The minimum number of players
+     * @param max The maximum number of players
      */
-    public int getUserInteger(String msg, int min, int max){
-        return gui.getUserInteger(msg, min, max);
+    public int getNumberOfPlayers(int min, int max){
+        return gui.getUserInteger("How many players are present?", min, max);
     }
 }
 
