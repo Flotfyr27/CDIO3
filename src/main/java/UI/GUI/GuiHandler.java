@@ -107,6 +107,10 @@ public class GuiHandler {
         }
 
     }
+
+    public void waitForRoll(){
+        gui.showMessage("Roll die");
+    }
 }
 
 
