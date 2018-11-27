@@ -16,7 +16,7 @@ public class Controller {
     private int currentPlayer = 0;
     private GameRules GR = new GameRules();
 
-    private boolean noWinner = true;
+    private boolean winnerFound = false;
 
     private void setupGame(){
         board = new Board();
@@ -25,7 +25,7 @@ public class Controller {
         guiHandler.initGui(board.getPlayers());
     }
     private void gameLoop(){
-        while(noWinner){
+        while(winnerFound){
             takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
             switchPlayer();
@@ -56,7 +56,7 @@ public class Controller {
     }
     private void checkForWin(){
         for(int i = 0; i < board.getPlayers().length; i++){
-           noWinner = GR.hasLost(board.getPlayers()[currentPlayer]);
+           winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
         }
     }
 }
