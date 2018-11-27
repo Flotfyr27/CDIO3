@@ -12,7 +12,7 @@ public class Die {
     }
 
     public int Roll (){
-        faceValue = Math.abs(random.nextInt() % dieFaces);
+        faceValue = Math.abs(random.nextInt(dieFaces)+1);
        return faceValue;
     }
 }
