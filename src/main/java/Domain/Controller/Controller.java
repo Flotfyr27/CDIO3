@@ -28,8 +28,8 @@ public class Controller {
         while(!winnerFound){
             takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
-            switchPlayer();
             checkForWin();
+            switchPlayer();
         }
     }
 
