@@ -40,7 +40,12 @@ public class GuiHandler {
      * @param max The maximum number of players
      */
     public int getNumberOfPlayers(int min, int max){
-        return gui.getUserInteger("How many players are present?", min, max);
+        int output;
+
+        do { //Made this loop due to us sometimes being able to choose any number of players despite min/max value
+            output = gui.getUserInteger("Choose between 2 and 4 players?", min, max);
+        } while (output < min || output > max);
+        return output;
     }
 
     public void initGui(Player[] p){
@@ -87,26 +92,56 @@ public class GuiHandler {
 
     }
 
-    public void updateGui(Player[] p, Field[] f){
-        //Remove all cars
-        for(int i = 0; i < 24; i++){
+    public void updateGui(Player[] pArr, Field[] f){
+
+        boolean carMoved = false;
+        //moves players step by step
+        for (int i = 0; i < gui_field.length; i++) {
+            for (int j = 0; j < guiPlayers.length; j++) {
+                if (gui_field[i].hasCar(guiPlayers[j]) && pArr[j].getPos() != i){
+                    gui_field[(i+1)%gui_field.length].setCar(guiPlayers[j], true);
+                    carMoved = true;
+                }
+            }
+
             gui_field[i].removeAllCars();
-        }
-        //Update player balance and location
-        for(int i = 0; i < p.length; i++){
-            guiPlayers[i].setBalance(p[i].getAccount().getScore());
-            gui_field[p[i].getPos()].setCar(guiPlayers[i], true);
-        }
-        //Update ownership of tile
-        //TODO : Display who owns a tile (code below)
-        Player ownerPlayer;
-        for(int i = 0; i < gui_field.length; i++){
-            if(gui_field[i].getClass().equals(PropertyField.class)){
-                ownerPlayer = ((PropertyField) f[i]).getOwner();
-                gui_field[i].setSubText(ownerPlayer.getName());
+            for (int j = 0; j < guiPlayers.length; j++) {
+                if (pArr[j].getPos() == i){
+                    gui_field[i].setCar(guiPlayers[j], true);
+                }
+            }
+
+
+            try {
+                if (carMoved){
+                    carMoved = false;
+                    Thread.sleep(100);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-        //TODO : Display chancecard text
+
+        //Update player balance
+        for(int i = 0; i < pArr.length; i++){
+            guiPlayers[i].setBalance(pArr[i].getAccount().getScore());
+        }
+
+        //Update ownership of tile
+        Player owner;
+        for(int i = 0; i < gui_field.length; i++){
+            if (f[i].getClass().equals(PropertyField.class)) {
+                owner = ((PropertyField) f[i]).getOwner();
+                if (owner != null) {
+                    gui_field[i].setDescription("Owner: " + owner.getName());
+                } else {
+                    gui_field[i].setDescription("No owner");
+                }
+            }
+        }
+
+        // maybe use gui.displayChanceCard(message);
+        //TODO : Display chanceCard text
 
     }
 
