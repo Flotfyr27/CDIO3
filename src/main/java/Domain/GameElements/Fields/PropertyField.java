@@ -48,7 +48,13 @@ public class PropertyField extends Field {
 
     //TODO : Change for purpose of buying the property or paying rent
     public void landOnAction(Player current) {
-        current.getAccount().changeScore(-price);
-        owner = current;
+
+        if (owner == null) {
+            current.getAccount().changeScore(-price);
+            owner = current;
+        } else {
+            current.getAccount().changeScore(-price);
+            owner.getAccount().changeScore(price);
+        }
     }
 }
