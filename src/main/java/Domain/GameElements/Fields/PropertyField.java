@@ -47,7 +47,8 @@ public class PropertyField extends Field {
 
 
     //TODO : Change for purpose of buying the property or paying rent
-    public void landOnAction(Player current) {
+    @Override
+    public void landOnAction(Player current, Player[] players, Field[] fields) {
 
         if (owner == null) {
             current.getAccount().changeScore(-price);
