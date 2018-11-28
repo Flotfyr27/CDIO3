@@ -25,6 +25,9 @@ public class Board {
 
     public void movePlayer(Player p, int dist){
         int currentPos = p.getPos();
+        if((currentPos + dist) >= fields.length){
+            p.getAccount().changeScore(2);
+        }
         currentPos = (currentPos + dist)%fields.length;
         p.setPos(currentPos);
     }
