@@ -106,6 +106,7 @@ public class GuiHandler {
                 gui_field[i].setSubText(ownerPlayer.getName());
             }
         }
+        //TODO : Display chancecard text
 
     }
 

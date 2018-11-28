@@ -30,12 +30,13 @@ public class ChanceField extends Field {
     public ChanceCard[] getChanceCards() {
         return chanceCards;
     }
+    //TODO : Fix the landOnAction for chancecards
     /**
      * Performs an action when a player lands on the field.
      */
-    @Override
+    /*@Override
     public void landOnAction(Player current, Player[] players, Field[] fields) {
         Utility.shuffleCards(chanceCards);
         chanceCards[random.nextInt(chanceCards.length)].chanceAction(current, fields, players);
-    }
+    }*/
 }
