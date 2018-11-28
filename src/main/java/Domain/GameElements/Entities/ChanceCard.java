@@ -21,7 +21,7 @@ public class ChanceCard {
         this.actionType = actionType.ordinal();
         this.colour = colour;
     }
-
+//TODO : Add a text based description or an array with descriptions for the GUI
     public void chanceAction(Player player, Field[] fields, Player[] players){
         switch (actionType) {
             case 0:
