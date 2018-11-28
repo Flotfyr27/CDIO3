@@ -98,11 +98,12 @@ public class GuiHandler {
             gui_field[p[i].getPos()].setCar(guiPlayers[i], true);
         }
         //Update ownership of tile
+        //TODO : Display who owns a tile (code below)
         Player ownerPlayer;
         for(int i = 0; i < gui_field.length; i++){
             if(gui_field[i].getClass().equals(PropertyField.class)){
                 ownerPlayer = ((PropertyField) f[i]).getOwner();
-                gui_field[i].setSubText(ownerPlayer.getName());//Find out how to access this value! (Owner value of PropertyField)
+                gui_field[i].setSubText(ownerPlayer.getName());
             }
         }
 
