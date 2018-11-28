@@ -42,8 +42,19 @@ public class Board {
 
     public void initPlayers(int numberOfPlayers){
         players = new Player[numberOfPlayers];
+        int startingCapital;
+        if(numberOfPlayers == 2){
+            startingCapital = 20;
+        }else if(numberOfPlayers == 3){
+            startingCapital = 18;
+        }else if(numberOfPlayers == 4){
+            startingCapital = 16;
+        }else{
+            startingCapital = 16;
+        }
         for(int i = 0; i < numberOfPlayers; i++){
             players[i] = new Player("Player" + (i+1));
+            players[i].getAccount().changeScore(startingCapital);
         }
     }
 

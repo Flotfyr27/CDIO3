@@ -4,7 +4,7 @@ public class Account {
     private int score;
 
     public Account(){
-        score = 1000;
+        score = 0;
 
     }
 
