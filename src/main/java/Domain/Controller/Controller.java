@@ -42,13 +42,13 @@ public class Controller {
 
     private void takeTurn(){
         Player selectedPlayer = board.getPlayers()[currentPlayer];
-
-        guiHandler.giveMsg("Player" + (currentPlayer+1) + " please roll a die");
+        guiHandler.waitForRoll("Player" + (currentPlayer+1) + " please roll a die");
         int rollValue = die.Roll();
         guiHandler.giveMsg("You rolled a " + rollValue);
         board.movePlayer(selectedPlayer,rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
-        board.getFields()[selectedPlayer.getPos()].landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
+        String message = board.getFields()[selectedPlayer.getPos()].landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
+        guiHandler.msgInMidle(message);
     }
 
     private void switchPlayer(){

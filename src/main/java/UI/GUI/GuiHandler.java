@@ -140,9 +140,18 @@ public class GuiHandler {
             }
         }
 
+
         // maybe use gui.displayChanceCard(message);
         //TODO : Display chanceCard text
 
+    }
+
+    public void msgInMidle(String msg){
+        gui.displayChanceCard(msg);
+    }
+
+    public void waitForRoll(String msg){
+        gui.getUserButtonPressed(msg, "Roll");
     }
 
     public void giveMsg(String msg){
