@@ -61,5 +61,8 @@ public class Controller {
         for(int i = 0; i < board.getPlayers().length; i++){
            winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
         }
+        if(winnerFound){
+            guiHandler.giveMsg("Game Over!");
+        }
     }
 }
