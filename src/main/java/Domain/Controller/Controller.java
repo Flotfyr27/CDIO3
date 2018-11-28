@@ -48,11 +48,6 @@ public class Controller {
         guiHandler.giveMsg("You rolled a " + rollValue);
         board.movePlayer(selectedPlayer,rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         board.getFields()[selectedPlayer.getPos()].landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
     }
 
