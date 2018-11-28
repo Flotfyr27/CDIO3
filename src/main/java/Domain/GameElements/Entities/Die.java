@@ -4,7 +4,7 @@ import java.security.SecureRandom;
 
 public class Die {
     private SecureRandom random;
-    private int dieFaces = 10; //bliver et 6-tal i vores
+    private int dieFaces = 6;
     private int faceValue;
 
     public Die(){
@@ -12,7 +12,7 @@ public class Die {
     }
 
     public int Roll (){
-        faceValue = Math.abs(random.nextInt() % dieFaces);
+        faceValue = Math.abs(random.nextInt(dieFaces)+1);
        return faceValue;
     }
 }

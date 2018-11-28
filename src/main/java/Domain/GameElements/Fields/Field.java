@@ -1,5 +1,7 @@
 package Domain.GameElements.Fields;
 
+import Domain.GameElements.Entities.Player;
+
 import java.awt.*;
 
 public abstract class Field {
@@ -19,5 +21,5 @@ public abstract class Field {
          return subtext;
      }
      public Color getBgColour(){ return bgColour;}
-     public void landOnAction(){}
+     public void landOnAction(Player current, Player[] players, Field[] fields){}
 }

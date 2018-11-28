@@ -44,9 +44,18 @@ public class PropertyField extends Field {
     public Player getOwner() {
         return owner;
     }
-//TODO : Change for purpose of buying the property or paying rent
+
+
+    //TODO : Change for purpose of buying the property or paying rent
     @Override
-    public void landOnAction() {
-        super.landOnAction();
+    public void landOnAction(Player current, Player[] players, Field[] fields) {
+
+        if (owner == null) {
+            current.getAccount().changeScore(-price);
+            owner = current;
+        } else {
+            current.getAccount().changeScore(-price);
+            owner.getAccount().changeScore(price);
+        }
     }
 }

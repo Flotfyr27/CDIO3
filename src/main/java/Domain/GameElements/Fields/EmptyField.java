@@ -13,8 +13,8 @@ public class EmptyField extends Field {
         super(name, subtext, bgColour);
     }
 
-    @Override
+
     public void landOnAction() {
-        super.landOnAction();
+
     }
 }

@@ -1,12 +1,12 @@
 package Domain.GameElements.Entities;
 
-import Domain.Controller.Controller;
-
 public class Player {
     private int pPos;
     private Account account;
+    private String name;
 
-    public Player(){
+    public Player(String name){
+        this.name = name;
         pPos = 0;
         account = new Account();
     }
@@ -21,5 +21,9 @@ public class Player {
 
     public Account getAccount() {
         return account;
+    }
+
+    public String getName(){
+        return name;
     }
 }
