@@ -99,7 +99,13 @@ public class ChanceCard {
     }
 
     private int nextFieldOfColour(Player p, Field[] fields){
-        for (int i = p.getPos(); i < p.getPos(); i = ++i % fields.length) {
+        for (int i = p.getPos(); i < fields.length; i++) {
+            if (fields[i].getBgColour() == colour) {
+                return i;
+            }
+        }
+
+        for (int i = 0; i < p.getPos(); i++) {
             if (fields[i].getBgColour() == colour) {
                 return i;
             }
