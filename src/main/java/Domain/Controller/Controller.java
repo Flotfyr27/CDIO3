@@ -4,6 +4,7 @@ package Domain.Controller;
 import Domain.GameElements.Board;
 import Domain.GameElements.Entities.ChanceCard;
 import Domain.GameElements.Entities.Die;
+import Domain.GameElements.Entities.Player;
 import TechnicalServices.Logic.GameRules;
 import UI.GUI.GuiHandler;
 
@@ -40,11 +41,13 @@ public class Controller {
     }
 
     private void takeTurn(){
+        Player selectedPlayer = board.getPlayers()[currentPlayer];
+
         guiHandler.giveMsg("Player" + (currentPlayer+1) + " please roll a die");
         int rollValue = die.Roll();
-        board.movePlayer(board.getPlayers()[currentPlayer],rollValue);
         guiHandler.giveMsg("You rolled a " + rollValue);
-        //landOnAction?
+        board.movePlayer(selectedPlayer,rollValue);
+        board.getFields()[selectedPlayer.getPos()].landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
     }
 
     private void switchPlayer(){
