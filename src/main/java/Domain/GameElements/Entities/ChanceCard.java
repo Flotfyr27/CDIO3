@@ -6,11 +6,12 @@ import TechnicalServices.ChanceCardAction;
 import java.awt.*;
 
 public class ChanceCard {
-    //TODO : Fill out the chancecard class
 
-    int actionType;
-    int amount;
-    Color colour;
+    private int actionType;
+    private int amount;
+    private Color colour;
+
+
 
     public ChanceCard(ChanceCardAction actionType, int amount){
         this.actionType = actionType.ordinal();
@@ -22,6 +23,7 @@ public class ChanceCard {
         this.colour = colour;
     }
 
+//TODO : Add a text based description or an array with descriptions for the GUI
     public void chanceAction(Player player, Field[] fields, Player[] players){
         switch (actionType) {
             case 0:
@@ -64,6 +66,7 @@ public class ChanceCard {
 
     private void moveToStart(Player p){
         p.setPos(0);
+        p.getAccount().changeScore(amount);
     }
 
     private void birthday(Player player, Player[] players){
@@ -84,5 +87,21 @@ public class ChanceCard {
         return -1;
     }
 
-
+    @Override
+    public String toString() {
+        switch (actionType) {
+            case 0:
+                return "You get " + amount + "$";
+            case 1:
+                return "You move " + amount + " fields";
+            case 2:
+                return "You move to the next " + colour + " field";
+            case 3:
+                return "You move to Start and get " + amount + "$";
+            case 4:
+                return "It's your birthday! all players gives you " + amount + "$";
+            default:
+                return "Couldn't find card text";
+        }
+    }
 }
