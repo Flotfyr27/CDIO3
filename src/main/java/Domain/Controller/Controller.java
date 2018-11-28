@@ -48,7 +48,7 @@ public class Controller {
     }
 
     private void switchPlayer(){
-        if(currentPlayer == 3){
+        if(currentPlayer == (board.getPlayers().length-1)){
             currentPlayer = 0;
         }else{
             currentPlayer++;
