@@ -2,7 +2,7 @@ package TechnicalServices;
 
 import Domain.GameElements.Entities.ChanceCard;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 public class Utility {
 
@@ -12,7 +12,7 @@ public class Utility {
      */
     public static void shuffleCards(ChanceCard[] array) {
         int n = array.length;
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
 
         for (int i = 0; i < array.length; i++) {
 
