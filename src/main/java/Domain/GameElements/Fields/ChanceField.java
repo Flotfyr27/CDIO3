@@ -1,6 +1,8 @@
 package Domain.GameElements.Fields;
 
 import Domain.GameElements.Entities.ChanceCard;
+import Domain.GameElements.Entities.Player;
+import TechnicalServices.Utility;
 
 import java.awt.*;
 import java.security.SecureRandom;
@@ -31,8 +33,9 @@ public class ChanceField extends Field {
     /**
      * Performs an action when a player lands on the field.
      */
-
-    public void landOnAction() {
-        //chanceCards[random.nextInt(chanceCards.length)].chanceAction();
+    @Override
+    public void landOnAction(Player current, Player[] players, Field[] fields) {
+        Utility.shuffleCards(chanceCards);
+        chanceCards[random.nextInt(chanceCards.length)].chanceAction(current, fields, players);
     }
 }
