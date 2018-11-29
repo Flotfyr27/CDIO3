@@ -48,7 +48,7 @@ public class Controller {
         guiHandler.waitForRoll("Player" + (currentPlayer + 1) + " please roll a die");
         int rollValue = die.Roll();
         guiHandler.showDie(rollValue);
-        Thread.sleep(250); //setting delay between roll and moving of the car.
+        Thread.sleep(400); //setting delay between roll and moving of the car.
         board.movePlayer(selectedPlayer, rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
 
