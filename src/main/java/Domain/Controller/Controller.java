@@ -48,7 +48,7 @@ public class Controller {
 
         guiHandler.waitForRoll("Player" + (currentPlayer + 1) + " please roll a die");
         int rollValue = die.Roll();
-        guiHandler.giveMsg("You rolled a " + rollValue);
+        guiHandler.showDie(rollValue);
 
         board.movePlayer(selectedPlayer, rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
