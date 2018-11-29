@@ -1,4 +1,5 @@
-import Domain.GameElements.Board;
+package Domain.GameElements;
+
 import Domain.GameElements.Entities.Player;
 import org.junit.jupiter.api.Test;
 
