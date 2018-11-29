@@ -1,13 +1,11 @@
 package Domain.GameElements;
 
-import Domain.GameElements.Entities.*;
+import Domain.GameElements.Entities.Player;
 import Domain.GameElements.Fields.ChanceField;
 import Domain.GameElements.Fields.EmptyField;
 import Domain.GameElements.Fields.Field;
 import Domain.GameElements.Fields.PropertyField;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
-import javax.xml.transform.Templates;
 import java.awt.*;
 
 public class Board {
@@ -72,8 +70,8 @@ public class Board {
         fields[7] = (new PropertyField("MUSEET", "$2", Color.magenta, 2));
         fields[8] = (new PropertyField("BIBLIOTEKET", "$2", Color.magenta, 2));
         fields[9] = (new ChanceField("?", "", Color.lightGray));
-        fields[10] = (new PropertyField("SKATERPARKEN", "$2", HOT_PINK, 2));
-        fields[11] = (new PropertyField("SWIMMINGPOOLEN", "$2", HOT_PINK, 2));
+        fields[10] = (new PropertyField("SKATERPARKEN", "$2", Color.pink, 2));
+        fields[11] = (new PropertyField("SWIMMINGPOOLEN", "$2", Color.pink, 2));
         fields[12] = (new EmptyField("GRATIS PARKERING", "", Color.lightGray));
         fields[13] = (new PropertyField("SPILLEHALLEN", "$3", Color.RED, 3));
         fields[14] = (new PropertyField("BIOGRAFEN", "$3", Color.RED, 3));
