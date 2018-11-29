@@ -24,25 +24,25 @@ public class ChanceCard {
     }
 
 //TODO : Add a text based description or an array with descriptions for the GUI
-    public String chanceAction(Player player, Field[] fields, Player[] players) {
+    public void chanceAction(Player player, Field[] fields, Player[] players) {
         switch (actionType) {
             case 0:
                 changeBalance(player);
-                return toString();
+                break;
             case 1:
                 moveByAmount(player, fields);
-                return toString();
+                break;
             case 2:
                 moveToColour(player, fields);
-                return toString();
+                break;
             case 3:
                 moveToStart(player);
-                return toString();
+                break;
             case 4:
                 birthday(player, players);
-                return toString();
+                break;
             default:
-                return "No action found";
+                break;
 
 
         }

@@ -48,7 +48,7 @@ public class PropertyField extends Field {
 
     //TODO : Change for purpose of buying the property or paying rent
     @Override
-    public String landOnAction(Player current, Player[] players, Field[] fields) {
+    public void landOnAction(Player current, Player[] players, Field[] fields) {
 
         if (owner == null) {
             current.getAccount().changeScore(-price);
@@ -58,14 +58,18 @@ public class PropertyField extends Field {
             current.getAccount().changeScore(-price);
             owner.getAccount().changeScore(price);
         }
-        return toString();
     }
 
     @Override
     public String toString(){
         StringBuilder builder = new StringBuilder();
         builder.append(getName() + "\n");
-        builder.append("Owner: " + owner.getName() + "\n");
+
+        if (owner != null)
+            builder.append("Owner: " + owner.getName() + "\n");
+        else
+            builder.append("Owner: none\n");
+
         builder.append("Rent: " + price);
         return builder.toString();
     }

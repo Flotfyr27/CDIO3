@@ -22,7 +22,7 @@ public class ChanceCardStack implements Iterator {
     }
 
     private ChanceCardStack(){
-        cardNum = -1;
+        cardNum = 0;
 
         chanceCards = new ChanceCard[] {
                 //TODO make the rest of the chance cards
@@ -43,12 +43,18 @@ public class ChanceCardStack implements Iterator {
             return false;
     }
 
+    public ChanceCard getCurrent(){
+        System.out.println(cardNum);
+        return chanceCards[cardNum];
+    }
+
     public ChanceCard next() {
         if (!hasNext()) {
             Utility.shuffleCards(chanceCards);
+            cardNum = 0;
         }
 
-        return chanceCards[++cardNum%chanceCards.length];
+        return chanceCards[cardNum++];
     }
 
     public void remove() {
