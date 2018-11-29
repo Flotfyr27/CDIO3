@@ -1,4 +1,5 @@
 import Domain.GameElements.Board;
+import Domain.GameElements.Entities.Player;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,6 +8,32 @@ class BoardTest {
 
     @Test
     void movePlayer() {
+        Board board = new Board();
+        board.initPlayers(2);
+        Player player1 = board.getPlayers()[0];
+        Player player2 = board.getPlayers()[1];
+        //Save starting posisitons
+        int startPos1 = player1.getPos();
+        int startPos2 = player2.getPos();
+        //Test for accurate starting location
+        assertEquals(0, startPos1);
+        assertEquals(0, startPos2);
+        //Test movement
+        board.movePlayer(player1, 2);
+        board.movePlayer(player2, 3);
+        assertEquals(2, player1.getPos());
+        assertEquals(3, player2.getPos());
+        //Moving players to tile before START
+        player1.setPos(23);
+        player2.setPos(23);
+        //Setting balance to pre-defined value
+        int player1Bal = player1.getAccount().getScore();
+        int player2Bal = player2.getAccount().getScore();
+        //Test for balance increase
+        board.movePlayer(player1, 1);
+        board.movePlayer(player2, 1);
+        assertEquals(player1Bal + 2, player1.getAccount().getScore());
+        assertEquals(player2Bal + 2, player2.getAccount().getScore());
     }
 
     @Test
