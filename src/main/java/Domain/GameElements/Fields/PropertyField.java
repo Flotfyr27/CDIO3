@@ -14,9 +14,10 @@ public class PropertyField extends Field {
 
     /**
      * Constructor for PropertyField
-     * @param name Name of the field
-     * @param subtext Description of the field
-     * @param price Price to purchase the property
+     *
+     * @param name     Name of the field
+     * @param subtext  Description of the field
+     * @param price    Price to purchase the property
      * @param bgColour Colour of the field.
      */
     public PropertyField(String name, String subtext, Color bgColour, int price, int sisterField){
@@ -28,6 +29,7 @@ public class PropertyField extends Field {
 
     /**
      * Method returns the price of the property.
+     *
      * @return Integer representing the property price.
      */
     public int getPrice() {
@@ -60,6 +62,7 @@ public class PropertyField extends Field {
 
     /**
      * Sets the owner of the field
+     *
      * @param owner Is the player object which owns the field
      */
     public void setOwner(Player owner) {
@@ -68,6 +71,7 @@ public class PropertyField extends Field {
 
     /**
      * Method returns the current owner.
+     *
      * @return Object of type player.
      */
     public Player getOwner() {
@@ -94,16 +98,18 @@ public class PropertyField extends Field {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(getName() + "\n");
 
-        if (owner != null)
-            builder.append("Oops. This property belongs to " + owner.getName() + "\n");
-        else
-            builder.append("This property has no owner. You use, you buy!\n");
+        if( owner==null ) {
+            builder.append("This property has no owner. You use, you buy!\n" + "Cough up" + price + "$ please.");
+        }
 
-        builder.append("Cough up " + price + "$ please.");
+        if (owner != null)
+            builder.append("Oops. This property belongs to " + owner.getName() + "\n" + "Cough up" + price + "$ please.");
+
+
         return builder.toString();
+        }
     }
-}
