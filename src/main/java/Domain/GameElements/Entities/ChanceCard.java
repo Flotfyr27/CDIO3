@@ -24,25 +24,25 @@ public class ChanceCard {
     }
 
 //TODO : Add a text based description or an array with descriptions for the GUI
-    public String chanceAction(Player player, Field[] fields, Player[] players) {
+    public void chanceAction(Player player, Field[] fields, Player[] players) {
         switch (actionType) {
             case 0:
                 changeBalance(player);
-                return toString();
+                break;
             case 1:
                 moveByAmount(player, fields);
-                return toString();
+                break;
             case 2:
                 moveToColour(player, fields);
-                return toString();
+                break;
             case 3:
                 moveToStart(player);
-                return toString();
+                break;
             case 4:
                 birthday(player, players);
-                return toString();
+                break;
             default:
-                return "No action found";
+                break;
 
 
         }
@@ -99,7 +99,13 @@ public class ChanceCard {
     }
 
     private int nextFieldOfColour(Player p, Field[] fields){
-        for (int i = p.getPos(); i < p.getPos(); i = ++i % fields.length) {
+        for (int i = p.getPos(); i < fields.length; i++) {
+            if (fields[i].getBgColour() == colour) {
+                return i;
+            }
+        }
+
+        for (int i = 0; i < p.getPos(); i++) {
             if (fields[i].getBgColour() == colour) {
                 return i;
             }
@@ -116,7 +122,7 @@ public class ChanceCard {
             case 1:
                 return "You move " + amount + " fields";
             case 2:
-                return "You move to the next " + colour + " field";
+                return "You move to the next " + getColorName() + " field";
             case 3:
                 return "You move to Start and get " + amount + "$";
             case 4:
@@ -125,4 +131,20 @@ public class ChanceCard {
                 return "Couldn't find card text";
         }
     }
+
+    private String getColorName() {
+        if (colour.equals(Color.BLUE))
+            return "blue";
+        if (colour.equals(Color.cyan))
+            return "cyan";
+        if (colour.equals(Color.red))
+            return "red";
+        if (colour.equals(Color.pink))
+            return "pink";
+        if (colour.equals(Color.yellow))
+            return "yellow";
+        else
+            return "";
+    }
+
 }

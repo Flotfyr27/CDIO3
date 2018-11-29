@@ -15,11 +15,12 @@ public class EmptyField extends Field {
         super(name, subtext, bgColour);
     }
 
-    public String landOnAction(Player current, Player[] players, Field[] fields) {
-            return "This field does nothing";
+    public void landOnAction(Player current, Player[] players, Field[] fields) {
+
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "This field does nothing";
+    }
 }
