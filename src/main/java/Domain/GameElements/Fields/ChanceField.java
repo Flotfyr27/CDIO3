@@ -37,11 +37,13 @@ public class ChanceField extends Field {
      */
     @Override
     public void landOnAction(Player current, Player[] players, Field[] fields) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        chanceCards.next().chanceAction(current, fields, players);
+        ChanceCard currentCard = chanceCards.getCurrent();
+        currentCard.chanceAction(current, fields, players);
+        currentCard = chanceCards.next();
+    }
+
+    @Override
+    public String toString() {
+        return chanceCards.getCurrent().toString();
     }
 }

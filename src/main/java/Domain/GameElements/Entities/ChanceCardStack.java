@@ -22,14 +22,15 @@ public class ChanceCardStack implements Iterator {
     }
 
     private ChanceCardStack(){
-        cardNum = -1;
+        cardNum = 0;
 
         chanceCards = new ChanceCard[] {
                 //TODO make the rest of the chance cards
                 new ChanceCard(ChanceCardAction.MoveByAmount, 5),
-                new ChanceCard(ChanceCardAction.ChangeBalance, 3),
-                new ChanceCard(ChanceCardAction.Birthday, 2),
-                new ChanceCard(ChanceCardAction.MoveToColour, Color.BLUE)
+                new ChanceCard(ChanceCardAction.ChangeBalance, 2),
+                new ChanceCard(ChanceCardAction.Birthday, 3),
+                new ChanceCard(ChanceCardAction.MoveToColour, Color.BLUE),
+                new ChanceCard(ChanceCardAction.ChangeBalance, -5)
         };
 
         Utility.shuffleCards(chanceCards);
@@ -43,12 +44,18 @@ public class ChanceCardStack implements Iterator {
             return false;
     }
 
+    public ChanceCard getCurrent(){
+        System.out.println(cardNum);
+        return chanceCards[cardNum];
+    }
+
     public ChanceCard next() {
         if (!hasNext()) {
             Utility.shuffleCards(chanceCards);
+            cardNum = 0;
         }
 
-        return chanceCards[++cardNum%chanceCards.length];
+        return chanceCards[cardNum++];
     }
 
     public void remove() {

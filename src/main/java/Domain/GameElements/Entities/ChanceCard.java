@@ -24,7 +24,7 @@ public class ChanceCard {
     }
 
 //TODO : Add a text based description or an array with descriptions for the GUI
-    public void chanceAction(Player player, Field[] fields, Player[] players){
+    public void chanceAction(Player player, Field[] fields, Player[] players) {
         switch (actionType) {
             case 0:
                 changeBalance(player);
@@ -41,6 +41,9 @@ public class ChanceCard {
             case 4:
                 birthday(player, players);
                 break;
+            default:
+                break;
+
 
         }
 
@@ -51,12 +54,24 @@ public class ChanceCard {
     }
 
     private void moveByAmount(Player p, Field[] fields){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         int currentPos = p.getPos();
         currentPos = (currentPos + amount)%fields.length;
         p.setPos(currentPos);
     }
 
     private void moveToColour(Player p, Field[] fields){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         int destination = nextFieldOfColour(p, fields);
 
         if (destination != -1) {
@@ -65,6 +80,12 @@ public class ChanceCard {
     }
 
     private void moveToStart(Player p){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         p.setPos(0);
         p.getAccount().changeScore(amount);
     }
@@ -78,7 +99,13 @@ public class ChanceCard {
     }
 
     private int nextFieldOfColour(Player p, Field[] fields){
-        for (int i = p.getPos(); i < p.getPos(); i = ++i % fields.length) {
+        for (int i = p.getPos(); i < fields.length; i++) {
+            if (fields[i].getBgColour() == colour) {
+                return i;
+            }
+        }
+
+        for (int i = 0; i < p.getPos(); i++) {
             if (fields[i].getBgColour() == colour) {
                 return i;
             }
@@ -104,4 +131,5 @@ public class ChanceCard {
                 return "Couldn't find card text";
         }
     }
+
 }

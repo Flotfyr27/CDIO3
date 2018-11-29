@@ -53,9 +53,24 @@ public class PropertyField extends Field {
         if (owner == null) {
             current.getAccount().changeScore(-price);
             owner = current;
+
         } else {
             current.getAccount().changeScore(-price);
             owner.getAccount().changeScore(price);
         }
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        builder.append(getName() + "\n");
+
+        if (owner != null)
+            builder.append("Owner: " + owner.getName() + "\n");
+        else
+            builder.append("Owner: none\n");
+
+        builder.append("Rent: " + price);
+        return builder.toString();
     }
 }

@@ -5,6 +5,8 @@ import Domain.GameElements.Board;
 import Domain.GameElements.Entities.ChanceCard;
 import Domain.GameElements.Entities.Die;
 import Domain.GameElements.Entities.Player;
+import Domain.GameElements.Fields.ChanceField;
+import Domain.GameElements.Fields.Field;
 import TechnicalServices.Logic.GameRules;
 import UI.GUI.GuiHandler;
 
@@ -40,15 +42,21 @@ public class Controller {
         controller.gameLoop();
     }
 
-    private void takeTurn(){
+    private void takeTurn() {
+        Field currentField;
         Player selectedPlayer = board.getPlayers()[currentPlayer];
 
-        guiHandler.giveMsg("Player" + (currentPlayer+1) + " please roll a die");
+        guiHandler.waitForRoll("Player" + (currentPlayer + 1) + " please roll a die");
         int rollValue = die.Roll();
         guiHandler.giveMsg("You rolled a " + rollValue);
-        board.movePlayer(selectedPlayer,rollValue);
+
+        board.movePlayer(selectedPlayer, rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
-        board.getFields()[selectedPlayer.getPos()].landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
+
+        currentField = board.getFields()[selectedPlayer.getPos()];
+        guiHandler.msgInMidle(currentField.toString());
+        currentField.landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
+
     }
 
     private void switchPlayer(){
@@ -63,7 +71,8 @@ public class Controller {
            winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
         }
         if(winnerFound){
-            guiHandler.giveMsg("Game Over!");
+            guiHandler.msgInMidle("Game Over!\n" +
+                    GR.getWinner(board.getPlayers()).getName() + " Won!!!");
         }
     }
 }

@@ -1,5 +1,7 @@
 package Domain.GameElements.Fields;
 
+import Domain.GameElements.Entities.Player;
+
 import java.awt.*;
 
 public class EmptyField extends Field {
@@ -13,8 +15,12 @@ public class EmptyField extends Field {
         super(name, subtext, bgColour);
     }
 
+    public void landOnAction(Player current, Player[] players, Field[] fields) {
 
-    public void landOnAction() {
+    }
 
+    @Override
+    public String toString() {
+        return "This field does nothing";
     }
 }
