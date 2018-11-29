@@ -135,6 +135,14 @@ public class ChanceCard {
     private String getColorName() {
         if (colour.equals(Color.BLUE))
             return "blue";
+        if (colour.equals(Color.cyan))
+            return "cyan";
+        if (colour.equals(Color.red))
+            return "red";
+        if (colour.equals(Color.pink))
+            return "pink";
+        if (colour.equals(Color.yellow))
+            return "yellow";
         else
             return "";
     }
