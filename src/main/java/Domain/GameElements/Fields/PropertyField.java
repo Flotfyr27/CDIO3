@@ -66,11 +66,11 @@ public class PropertyField extends Field {
         builder.append(getName() + "\n");
 
         if (owner != null)
-            builder.append("Owner: " + owner.getName() + "\n");
+            builder.append("Oops. This property belongs to " + owner.getName() + "\n");
         else
-            builder.append("Owner: none\n");
+            builder.append("This property has no owner. You use, you buy!\n");
 
-        builder.append("Rent: " + price);
+        builder.append("Cough up " + price + "$ please.");
         return builder.toString();
     }
 }
