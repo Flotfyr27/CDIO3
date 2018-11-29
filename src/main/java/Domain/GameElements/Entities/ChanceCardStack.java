@@ -45,7 +45,6 @@ public class ChanceCardStack implements Iterator {
     }
 
     public ChanceCard getCurrent(){
-        System.out.println(cardNum);
         return chanceCards[cardNum];
     }
 
