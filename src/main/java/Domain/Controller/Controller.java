@@ -70,8 +70,13 @@ public class Controller {
            winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
         }
         if(winnerFound){
-            guiHandler.msgInMidle("Game Over!\n" +
-                    GR.getWinner(board.getPlayers()).getName() + " Won!!!");
+            try {
+                guiHandler.msgInMidle("Game Over!\n" +
+                        GR.getWinner(board).getName() + " Won!!!");
+            } catch (Exception e) {
+                guiHandler.msgInMidle(e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 }
