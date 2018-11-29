@@ -18,4 +18,15 @@ public class GameRules {
             return false;
         }
     }
+
+    public Player getWinner(Player[] players){
+        Player winner = null;
+        for (Player p : players){
+            if (winner == null)
+                winner = p;
+            else if (winner.getAccount().getScore() < p.getAccount().getScore())
+                winner = p;
+        }
+        return winner;
+    }
 }

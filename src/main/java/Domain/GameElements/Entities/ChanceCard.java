@@ -131,4 +131,5 @@ public class ChanceCard {
                 return "Couldn't find card text";
         }
     }
+
 }

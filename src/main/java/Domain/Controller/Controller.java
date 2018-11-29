@@ -71,7 +71,8 @@ public class Controller {
            winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
         }
         if(winnerFound){
-            guiHandler.giveMsg("Game Over!");
+            guiHandler.msgInMidle("Game Over!\n" +
+                    GR.getWinner(board.getPlayers()).getName() + " Won!!!");
         }
     }
 }

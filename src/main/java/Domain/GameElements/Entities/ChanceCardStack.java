@@ -27,9 +27,10 @@ public class ChanceCardStack implements Iterator {
         chanceCards = new ChanceCard[] {
                 //TODO make the rest of the chance cards
                 new ChanceCard(ChanceCardAction.MoveByAmount, 5),
-                new ChanceCard(ChanceCardAction.ChangeBalance, 3),
-                new ChanceCard(ChanceCardAction.Birthday, 2),
-                new ChanceCard(ChanceCardAction.MoveToColour, Color.BLUE)
+                new ChanceCard(ChanceCardAction.ChangeBalance, 2),
+                new ChanceCard(ChanceCardAction.Birthday, 3),
+                new ChanceCard(ChanceCardAction.MoveToColour, Color.BLUE),
+                new ChanceCard(ChanceCardAction.ChangeBalance, -5)
         };
 
         Utility.shuffleCards(chanceCards);
