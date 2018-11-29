@@ -9,6 +9,8 @@ public class PropertyField extends Field {
     private int price;
     private int rent;
     private Player owner;
+    private int sisterField;
+    private boolean isPaired = false;
 
     /**
      * Constructor for PropertyField
@@ -17,10 +19,11 @@ public class PropertyField extends Field {
      * @param price Price to purchase the property
      * @param bgColour Colour of the field.
      */
-    public PropertyField(String name, String subtext, Color bgColour, int price){
+    public PropertyField(String name, String subtext, Color bgColour, int price, int sisterField){
         super(name, subtext, bgColour);
         this.price = price;
         rent = price;
+        this.sisterField = sisterField;
     }
 
     /**
@@ -29,6 +32,30 @@ public class PropertyField extends Field {
      */
     public int getPrice() {
         return price;
+    }
+
+    /**
+     * Returns an integer for the sisterfield
+     * @return an integer representing the index value of the sisterfield
+     */
+    public int getSisterField() {
+        return sisterField;
+    }
+
+    /**
+     * Sets whether or not the sisterfields have been paired
+     * @param value Is a boolean value
+     */
+    public void setPaired(boolean value){
+        isPaired = value;
+    }
+
+    /**
+     * Method to return a boolean value stating if the field has already been paired
+     * @return Boolean value return true or false
+     */
+    public boolean getIsPaired() {
+        return isPaired;
     }
 
     /**
