@@ -5,7 +5,9 @@ import Domain.GameElements.Fields.ChanceField;
 import Domain.GameElements.Fields.EmptyField;
 import Domain.GameElements.Fields.Field;
 import Domain.GameElements.Fields.PropertyField;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 
+import javax.xml.transform.Templates;
 import java.awt.*;
 
 public class Board {
@@ -84,5 +86,31 @@ public class Board {
         fields[21] = (new ChanceField("?", "", Color.lightGray));
         fields[22] = (new PropertyField("VANDLANDET", "$5", Color.BLUE, 5));
         fields[23] = (new PropertyField("STRANDPROMENADEN", "$5", Color.BLUE, 5));
+    }
+
+    public PropertyField[] getFieldsOfColor(Color colour) {
+        int i = 0;
+        PropertyField[] colouredFields = new PropertyField[fields.length];
+        for (Field f : fields) {
+            if (f.getClass().equals(PropertyField.class)){
+                if (((PropertyField) f).getBgColour() == colour){
+                    colouredFields[i++] = (PropertyField) f;
+                }
+            }
+        }
+        return colouredFields;
+    }
+
+    public PropertyField[] getFieldsOfOwner(Player owner){
+        int i = 0;
+        PropertyField[] colouredFields = new PropertyField[fields.length];
+        for (Field f : fields) {
+            if (f.getClass().equals(PropertyField.class)){
+                if (((PropertyField) f).getOwner() == owner){
+                    colouredFields[i++] = (PropertyField) f;
+                }
+            }
+        }
+        return colouredFields;
     }
 }
