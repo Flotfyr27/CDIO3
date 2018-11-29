@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameRulesTest {
 
     @Test
-    void getWinner() {
+    void getWinner() throws Exception {
         Board b = new Board();
         b.initPlayers(2);
         GameRules GR = new GameRules();
@@ -18,6 +18,6 @@ class GameRulesTest {
         //Adds a lot of money to player1
         p1.getAccount().changeScore(100);
         //Test for winner = player1
-        assertEquals(p1, GR.getWinner(b.getPlayers()));
+        assertEquals(p1, GR.getWinner(b));
     }
 }

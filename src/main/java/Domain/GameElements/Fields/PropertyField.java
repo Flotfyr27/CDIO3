@@ -7,6 +7,7 @@ import java.awt.*;
 public class PropertyField extends Field {
 
     private int price;
+    private int rent;
     private Player owner;
 
     /**
@@ -19,6 +20,7 @@ public class PropertyField extends Field {
     public PropertyField(String name, String subtext, Color bgColour, int price){
         super(name, subtext, bgColour);
         this.price = price;
+        rent = price;
     }
 
     /**
@@ -51,13 +53,17 @@ public class PropertyField extends Field {
     public void landOnAction(Player current, Player[] players, Field[] fields) {
 
         if (owner == null) {
-            current.getAccount().changeScore(-price);
+            current.getAccount().changeScore(-rent);
             owner = current;
 
         } else {
-            current.getAccount().changeScore(-price);
-            owner.getAccount().changeScore(price);
+            current.getAccount().changeScore(-rent);
+            owner.getAccount().changeScore(rent);
         }
+    }
+
+    public void setRent(int rent) {
+        this.rent = rent;
     }
 
     @Override
