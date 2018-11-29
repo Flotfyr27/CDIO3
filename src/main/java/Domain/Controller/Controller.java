@@ -5,7 +5,6 @@ import Domain.GameElements.Board;
 import Domain.GameElements.Entities.ChanceCard;
 import Domain.GameElements.Entities.Die;
 import Domain.GameElements.Entities.Player;
-import Domain.GameElements.Fields.ChanceField;
 import Domain.GameElements.Fields.Field;
 import TechnicalServices.Logic.GameRules;
 import UI.GUI.GuiHandler;
@@ -27,7 +26,7 @@ public class Controller {
         board.initPlayers(guiHandler.getNumberOfPlayers(2, 4));
         guiHandler.initGui(board.getPlayers());
     }
-    private void gameLoop(){
+    private void gameLoop() throws InterruptedException {
         while(!winnerFound){
             takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
@@ -36,20 +35,20 @@ public class Controller {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Controller controller = new Controller();
         controller.setupGame();
         controller.gameLoop();
     }
 
-    private void takeTurn() {
+    private void takeTurn() throws InterruptedException {
         Field currentField;
         Player selectedPlayer = board.getPlayers()[currentPlayer];
 
         guiHandler.waitForRoll("Player" + (currentPlayer + 1) + " please roll a die");
         int rollValue = die.Roll();
-        guiHandler.giveMsg("You rolled a " + rollValue);
-
+        guiHandler.showDie(rollValue);
+        Thread.sleep(400); //setting delay between roll and moving of the car.
         board.movePlayer(selectedPlayer, rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
 

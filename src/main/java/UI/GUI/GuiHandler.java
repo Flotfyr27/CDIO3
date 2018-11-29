@@ -146,6 +146,10 @@ public class GuiHandler {
 
     }
 
+    public void showDie(int value){
+        gui.setDie(value);
+    }
+
     public void msgInMidle(String msg){
         gui.displayChanceCard(msg);
     }
