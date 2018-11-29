@@ -13,7 +13,7 @@ class BoardTest {
         board.initPlayers(2);
         Player player1 = board.getPlayers()[0];
         Player player2 = board.getPlayers()[1];
-        //Save starting posisitons
+        //Save starting positions
         int startPos1 = player1.getPos();
         int startPos2 = player2.getPos();
         //Test for accurate starting location

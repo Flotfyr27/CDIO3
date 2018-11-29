@@ -55,6 +55,7 @@ public class Controller {
         currentField = board.getFields()[selectedPlayer.getPos()];
         guiHandler.msgInMidle(currentField.toString());
         currentField.landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
+        board.UpdateRent();
 
     }
 
