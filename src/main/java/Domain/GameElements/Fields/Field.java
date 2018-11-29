@@ -21,5 +21,5 @@ public abstract class Field {
          return subtext;
      }
      public Color getBgColour(){ return bgColour;}
-     public void landOnAction(Player current, Player[] players, Field[] fields){}
+     public abstract String landOnAction(Player current, Player[] players, Field[] fields);
 }

@@ -36,12 +36,7 @@ public class ChanceField extends Field {
      * Performs an action when a player lands on the field.
      */
     @Override
-    public void landOnAction(Player current, Player[] players, Field[] fields) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        chanceCards.next().chanceAction(current, fields, players);
+    public String landOnAction(Player current, Player[] players, Field[] fields) {
+        return chanceCards.next().chanceAction(current, fields, players);
     }
 }

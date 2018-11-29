@@ -24,23 +24,26 @@ public class ChanceCard {
     }
 
 //TODO : Add a text based description or an array with descriptions for the GUI
-    public void chanceAction(Player player, Field[] fields, Player[] players){
+    public String chanceAction(Player player, Field[] fields, Player[] players) {
         switch (actionType) {
             case 0:
                 changeBalance(player);
-                break;
+                return toString();
             case 1:
                 moveByAmount(player, fields);
-                break;
+                return toString();
             case 2:
                 moveToColour(player, fields);
-                break;
+                return toString();
             case 3:
                 moveToStart(player);
-                break;
+                return toString();
             case 4:
                 birthday(player, players);
-                break;
+                return toString();
+            default:
+                return "No action found";
+
 
         }
 
@@ -51,12 +54,24 @@ public class ChanceCard {
     }
 
     private void moveByAmount(Player p, Field[] fields){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         int currentPos = p.getPos();
         currentPos = (currentPos + amount)%fields.length;
         p.setPos(currentPos);
     }
 
     private void moveToColour(Player p, Field[] fields){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         int destination = nextFieldOfColour(p, fields);
 
         if (destination != -1) {
@@ -65,6 +80,12 @@ public class ChanceCard {
     }
 
     private void moveToStart(Player p){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         p.setPos(0);
         p.getAccount().changeScore(amount);
     }
