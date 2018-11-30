@@ -1,6 +1,7 @@
 package Domain.GameElements.Entities;
 
 import Domain.GameElements.Fields.Field;
+import Domain.GameElements.Fields.PropertyField;
 import TechnicalServices.ChanceCardAction;
 
 import java.awt.*;
@@ -76,6 +77,9 @@ public class ChanceCard {
         int destination = nextFieldOfColour(p, fields);
 
         if (destination != -1) {
+            if (fields[destination].getClass().equals(PropertyField.class))
+                ((PropertyField)fields[destination]).setPrice(0);
+
             p.setPos(destination);
             p.setIsActive(true);
         }
@@ -124,7 +128,8 @@ public class ChanceCard {
             case 1:
                 return "You move " + amount + " fields";
             case 2:
-                return "You move to the next " + getColorName() + " field";
+                return "You move to the next " + getColorName() + " field \n" +
+                        "If it's owned you pay rent if not you get it for free";
             case 3:
                 return "You move to Start and get " + amount + "$";
             case 4:

@@ -84,7 +84,7 @@ public class PropertyField extends Field {
     public void landOnAction(Player current, Player[] players, Field[] fields) {
 
         if (owner == null) {
-            current.getAccount().changeScore(-rent);
+            current.getAccount().changeScore(-price);
             owner = current;
 
         } else {
@@ -95,6 +95,9 @@ public class PropertyField extends Field {
 
     public void setRent(int rent) {
         this.rent = rent;
+    }
+    public void setPrice(int price){
+        this.price = price;
     }
 
     public String getMessage(Player current) {
