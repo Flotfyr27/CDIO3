@@ -109,7 +109,7 @@ public class PropertyField extends Field {
         }
 
         if (owner != current && owner != null)
-            builder.append("Oops. This property belongs to " + owner.getName() + "\n" + "Cough up " + price + "$ please");
+            builder.append("Oops. This property belongs to " + owner.getName() + "\n" + "Cough up " + rent + "$ please");
 
         if (owner == current){
             builder.append("Welcome home " + owner.getName() + "\n" + "Please enjoy your stay");

@@ -43,7 +43,7 @@ public class GuiHandler {
         int output;
 
         do { //Made this loop due to us sometimes being able to choose any number of players despite min/max value
-            output = gui.getUserInteger("Choose between 2 and 4 players?", min, max);
+            output = gui.getUserInteger("Choose between 2 and 4 players", min, max);
         } while (output < min || output > max);
         return output;
     }
