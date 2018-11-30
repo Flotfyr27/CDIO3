@@ -61,7 +61,7 @@ public class Board {
      */
     private void setFields(){
         fields = new Field[24];
-        fields[0] = (new EmptyField("START", "Modtage $2, når du passerer", Color.lightGray));
+        fields[0] = (new EmptyField("START", "Modtag $2, når du passerer", Color.lightGray));
         fields[1] = (new PropertyField("BURGERBAREN", "$1", BROWN, 1, 2));
         fields[2] = (new PropertyField("PIZZARIAET", "$1", BROWN, 1, 1));
         fields[3] = (new ChanceField("?", "",Color.lightGray));
