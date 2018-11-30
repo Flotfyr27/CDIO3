@@ -20,7 +20,7 @@ public class PropertyField extends Field {
      * @param price    Price to purchase the property
      * @param bgColour Colour of the field.
      */
-    public PropertyField(String name, String subtext, Color bgColour, int price, int sisterField){
+    public PropertyField(String name, String subtext, Color bgColour, int price, int sisterField) {
         super(name, subtext, bgColour);
         this.price = price;
         rent = price;
@@ -38,6 +38,7 @@ public class PropertyField extends Field {
 
     /**
      * Returns an integer for the sisterfield
+     *
      * @return an integer representing the index value of the sisterfield
      */
     public int getSisterField() {
@@ -46,14 +47,16 @@ public class PropertyField extends Field {
 
     /**
      * Sets whether or not the sisterfields have been paired
+     *
      * @param value Is a boolean value
      */
-    public void setPaired(boolean value){
+    public void setPaired(boolean value) {
         isPaired = value;
     }
 
     /**
      * Method to return a boolean value stating if the field has already been paired
+     *
      * @return Boolean value return true or false
      */
     public boolean getIsPaired() {
@@ -96,7 +99,8 @@ public class PropertyField extends Field {
     public void setRent(int rent) {
         this.rent = rent;
     }
-    public void setPrice(int price){
+
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -104,16 +108,13 @@ public class PropertyField extends Field {
         StringBuilder builder = new StringBuilder();
         builder.append(getName() + "\n");
 
-        if( owner==null ) {
+        if (owner == null) {
             builder.append("This property has no owner. You use, you buy!\n" + "Cough up " + price + "$ please");
-        }
-
-        if (owner != current && owner != null)
+        } else if (owner != current) {
             builder.append("Oops. This property belongs to " + owner.getName() + "\n" + "Cough up " + rent + "$ please");
-
-        if (owner == current){
+        } else if (owner == current) {
             builder.append("Welcome home " + owner.getName() + "\n" + "Please enjoy your stay");
         }
         return builder.toString();
-        }
     }
+}
