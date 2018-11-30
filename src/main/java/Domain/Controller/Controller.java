@@ -43,7 +43,6 @@ public class Controller {
     private void takeTurn() throws InterruptedException {
         Field currentField;
         Player selectedPlayer = board.getPlayers()[currentPlayer];
-        selectedPlayer.setIsActive(true);
 
         guiHandler.waitForRoll("Player" + (currentPlayer + 1) + " please roll a die");
         int rollValue = die.Roll();
