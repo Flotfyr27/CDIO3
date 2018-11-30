@@ -22,7 +22,7 @@ class GameRulesTest {
         assertEquals(p1, GR.getWinner(b));
     }
 
-    //@Test
+    /*@Test
     void getTie() {
         Controller c = new Controller();
 
@@ -44,4 +44,5 @@ class GameRulesTest {
                 .hasMessageContaining("exception")
                 .hasNoCause();
     }
+    */
 }
