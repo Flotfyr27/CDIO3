@@ -14,7 +14,6 @@ public class Controller {
     private Die die = new Die();
     private Board board;
     private GuiHandler guiHandler;
-    private ChanceCard[] cards;
     private int currentPlayer = 0;
     private GameRules GR = new GameRules();
 
