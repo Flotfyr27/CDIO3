@@ -20,14 +20,15 @@ public class Controller {
 
     private boolean winnerFound = false;
 
-    private void setupGame(){
+    private void setupGame() {
         board = new Board();
         guiHandler = new GuiHandler(board.getFields());
         board.initPlayers(guiHandler.getNumberOfPlayers(2, 4));
         guiHandler.initGui(board.getPlayers());
     }
+
     private void gameLoop() throws InterruptedException {
-        while(!winnerFound){
+        while (!winnerFound) {
             takeTurn();
             guiHandler.updateGui(board.getPlayers(), board.getFields());
             checkForWin();
@@ -53,24 +54,25 @@ public class Controller {
         guiHandler.updateGui(board.getPlayers(), board.getFields());
 
         currentField = board.getFields()[selectedPlayer.getPos()];
-        guiHandler.msgInMidle(currentField.toString());
+        guiHandler.msgInMidle(currentField.getMessage(selectedPlayer));
         currentField.landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
         board.UpdateRent();
 
     }
 
-    private void switchPlayer(){
-        if(currentPlayer == (board.getPlayers().length-1)){
+    private void switchPlayer() {
+        if (currentPlayer == (board.getPlayers().length - 1)) {
             currentPlayer = 0;
-        }else{
+        } else {
             currentPlayer++;
         }
     }
-    private void checkForWin(){
-        for(int i = 0; i < board.getPlayers().length; i++){
-           winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
+
+    private void checkForWin() {
+        for (int i = 0; i < board.getPlayers().length; i++) {
+            winnerFound = GR.hasLost(board.getPlayers()[currentPlayer]);
         }
-        if(winnerFound){
+        if (winnerFound) {
             try {
                 guiHandler.msgInMidle("Game Over!\n" +
                         GR.getWinner(board).getName() + " Won!!!");

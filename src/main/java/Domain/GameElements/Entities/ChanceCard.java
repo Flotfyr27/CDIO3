@@ -114,8 +114,8 @@ public class ChanceCard {
         return -1;
     }
 
-    @Override
-    public String toString() {
+
+    public String getMessage(Player current) {
         switch (actionType) {
             case 0:
                 return "You get " + amount + "$";

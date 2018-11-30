@@ -97,19 +97,20 @@ public class PropertyField extends Field {
         this.rent = rent;
     }
 
-    @Override
-    public String toString() {
+    public String getMessage(Player current) {
         StringBuilder builder = new StringBuilder();
         builder.append(getName() + "\n");
 
         if( owner==null ) {
-            builder.append("This property has no owner. You use, you buy!\n" + "Cough up" + price + "$ please.");
+            builder.append("This property has no owner. You use, you buy!\n" + "Cough up " + price + "$ please");
         }
 
-        if (owner != null)
-            builder.append("Oops. This property belongs to " + owner.getName() + "\n" + "Cough up" + price + "$ please.");
+        if (owner != current && owner != null)
+            builder.append("Oops. This property belongs to " + owner.getName() + "\n" + "Cough up " + price + "$ please");
 
-
+        if (owner == current){
+            builder.append("Welcome home " + owner.getName() + "\n" + "Please enjoy your stay");
+        }
         return builder.toString();
         }
     }

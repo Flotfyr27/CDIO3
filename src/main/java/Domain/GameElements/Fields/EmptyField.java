@@ -19,8 +19,7 @@ public class EmptyField extends Field {
 
     }
 
-    @Override
-    public String toString() {
+    public String getMessage(Player current) {
         return "This field does nothing";
     }
 }

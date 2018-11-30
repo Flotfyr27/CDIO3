@@ -22,4 +22,6 @@ public abstract class Field {
      }
      public Color getBgColour(){ return bgColour;}
      public abstract void landOnAction(Player current, Player[] players, Field[] fields);
+
+     public abstract String getMessage(Player current);
 }

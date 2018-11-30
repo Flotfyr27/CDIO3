@@ -42,8 +42,7 @@ public class ChanceField extends Field {
         currentCard = chanceCards.next();
     }
 
-    @Override
-    public String toString() {
-        return chanceCards.getCurrent().toString();
+    public String getMessage(Player current) {
+        return chanceCards.getCurrent().getMessage(current);
     }
 }
