@@ -15,23 +15,23 @@ import java.awt.*;
 
 public class GuiHandler {
     GUI gui;
-    GUI_Field[] gui_field = new GUI_Field[24];
+    GUI_Field[] gui_fields = new GUI_Field[24];
     GUI_Player[] guiPlayers;
     public GuiHandler(Field[] fields){//Field[] fields
-        for(int i = 0; i < gui_field.length; i++){
+        for(int i = 0; i < gui_fields.length; i++){
             if(fields[i].getClass().equals(EmptyField.class) && i == 0){
-                gui_field[i] = (new GUI_Start(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
+                gui_fields[i] = (new GUI_Start(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
             }else if(fields[i].getClass().equals(PropertyField.class)){
                 PropertyField propertyField = (PropertyField) fields[i];
-                gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", Integer.toString(propertyField.getPrice()), fields[i].getBgColour(), null));
+                gui_fields[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", Integer.toString(propertyField.getPrice()), fields[i].getBgColour(), null));
             }else if(fields[i].getClass().equals(EmptyField.class)){
-                gui_field[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", "0", fields[i].getBgColour(), null));//This one be causing trouble
+                gui_fields[i] = (new GUI_Street(fields[i].getName(), fields[i].getSubtext(), "", "0", fields[i].getBgColour(), null));//This one be causing trouble
             }else if(fields[i].getClass().equals(ChanceField.class)){
-                gui_field[i] = (new GUI_Chance(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
+                gui_fields[i] = (new GUI_Chance(fields[i].getName(), fields[i].getSubtext(), "", fields[i].getBgColour(), null));
             }
         }
 
-        gui = new GUI(gui_field, Color.lightGray);
+        gui = new GUI(gui_fields, Color.lightGray);
     }
 
     /**
@@ -86,7 +86,7 @@ public class GuiHandler {
             gui.addPlayer(guiPlayers[i]);
             guiPlayers[i].setBalance(p[i].getAccount().getScore());
             //Adds the players car to the board at START
-            gui_field[0].setCar(guiPlayers[i], true);
+            gui_fields[0].setCar(guiPlayers[i], true);
         }
 
 
@@ -96,18 +96,18 @@ public class GuiHandler {
 
         boolean carMoved = false;
         //moves players step by step
-        for (int i = 0; i < gui_field.length; i++) {
+        for (int i = 0; i < gui_fields.length; i++) {
             for (int j = 0; j < guiPlayers.length; j++) {
-                if (gui_field[i].hasCar(guiPlayers[j]) && pArr[j].getPos() != i){
-                    gui_field[(i+1)%gui_field.length].setCar(guiPlayers[j], true);
+                if (gui_fields[i].hasCar(guiPlayers[j]) && pArr[j].getPos() != i){
+                    gui_fields[(i+1)% gui_fields.length].setCar(guiPlayers[j], true);
                     carMoved = true;
                 }
             }
 
-            gui_field[i].removeAllCars();
+            gui_fields[i].removeAllCars();
             for (int j = 0; j < guiPlayers.length; j++) {
                 if (pArr[j].getPos() == i){
-                    gui_field[i].setCar(guiPlayers[j], true);
+                    gui_fields[i].setCar(guiPlayers[j], true);
                 }
             }
 
@@ -129,13 +129,13 @@ public class GuiHandler {
 
         //Update ownership of tile
         Player owner;
-        for(int i = 0; i < gui_field.length; i++){
+        for(int i = 0; i < gui_fields.length; i++){
             if (f[i].getClass().equals(PropertyField.class)) {
                 owner = ((PropertyField) f[i]).getOwner();
                 if (owner != null) {
-                    gui_field[i].setDescription("Owner: " + owner.getName());
+                    gui_fields[i].setDescription("Owner: " + owner.getName());
                 } else {
-                    gui_field[i].setDescription("No owner");
+                    gui_fields[i].setDescription("No owner");
                 }
             }
         }
@@ -161,6 +161,22 @@ public class GuiHandler {
     public void giveMsg(String msg){
         gui.showMessage(msg);
     }
+
+    //TODO lav en toString metode der udskriver alle vores felter.
+
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+
+        for (GUI_Field f : gui_fields){
+            builder.append(f + "\n");
+        }
+
+        return builder.toString();
+    }
+
+
 }
 
 
