@@ -21,6 +21,9 @@ class DieTest {
                 moreThanSix++;
             }
         }
+        System.out.println("Less than one: " + lessThanOne);
+        System.out.println("Correct value of 1-6: " + correctValue);
+        System.out.println("More than six: " + moreThanSix);
         //Examines if any die values are below one or above six
         assertEquals(0, lessThanOne);
         assertEquals(0, moreThanSix);
