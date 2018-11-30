@@ -30,7 +30,6 @@ public class Controller {
     private void gameLoop() throws InterruptedException {
         while (!winnerFound) {
             takeTurn();
-            guiHandler.updateGui(board.getPlayers(), board.getFields());
             checkForWin();
             switchPlayer();
         }
@@ -45,6 +44,7 @@ public class Controller {
     private void takeTurn() throws InterruptedException {
         Field currentField;
         Player selectedPlayer = board.getPlayers()[currentPlayer];
+        selectedPlayer.setIsActive(true);
 
         guiHandler.waitForRoll("Player" + (currentPlayer + 1) + " please roll a die");
         int rollValue = die.Roll();
@@ -53,11 +53,14 @@ public class Controller {
         board.movePlayer(selectedPlayer, rollValue);
         guiHandler.updateGui(board.getPlayers(), board.getFields());
 
-        currentField = board.getFields()[selectedPlayer.getPos()];
-        guiHandler.msgInMidle(currentField.getMessage(selectedPlayer));
-        currentField.landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
-        board.UpdateRent();
-
+        do {
+            selectedPlayer.setIsActive(false);
+            currentField = board.getFields()[selectedPlayer.getPos()];
+            guiHandler.msgInMidle(currentField.getMessage(selectedPlayer));
+            currentField.landOnAction(selectedPlayer, board.getPlayers(), board.getFields());
+            board.UpdateRent();
+            guiHandler.updateGui(board.getPlayers(), board.getFields());
+        } while (selectedPlayer.getIsActive());
     }
 
     private void switchPlayer() {

@@ -63,6 +63,7 @@ public class ChanceCard {
         int currentPos = p.getPos();
         currentPos = (currentPos + amount)%fields.length;
         p.setPos(currentPos);
+        p.setIsActive(true);
     }
 
     private void moveToColour(Player p, Field[] fields){
@@ -76,6 +77,7 @@ public class ChanceCard {
 
         if (destination != -1) {
             p.setPos(destination);
+            p.setIsActive(true);
         }
     }
 
